@@ -21,6 +21,12 @@ public class DtllCompraEntity implements Serializable{
     @Column(name = "CANTIDAD", length = 20, nullable = false)
     private Integer cantidadDtllCompra;
 
+    @Column(name = "PRECIOCOMPRA", nullable = false)
+    private Double precioDtllCompra;
+
+    @Column(name = "TOTAL", nullable = false)
+    private Double totalDtllCompra;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CABECERA_COMPRA", nullable = false)
     private CbzCompraEntity cbzCompra;
@@ -67,11 +73,13 @@ public class DtllCompraEntity implements Serializable{
         return  Objects.equals(idDtllCompra, that.idDtllCompra) &&
                 Objects.equals(productoDtllCompra, that.productoDtllCompra) &&
                 Objects.equals(cantidadDtllCompra, that.cantidadDtllCompra) &&
-                Objects.equals(cbzCompra, that.cbzCompra);
+                Objects.equals(cbzCompra, that.cbzCompra) &&
+                Objects.equals(precioDtllCompra, that.precioDtllCompra) &&
+                Objects.equals(totalDtllCompra, that.totalDtllCompra);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(idDtllCompra,productoDtllCompra,cantidadDtllCompra,cbzCompra);
+        return Objects.hash(idDtllCompra,productoDtllCompra,cantidadDtllCompra,cbzCompra,precioDtllCompra,totalDtllCompra);
     }
 }
