@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="~{layout/plantillaDashboard :: cabecera}">
+    </head>
+    <body class="nav-fixed">
+        <nav th:replace="~{layout/plantillaDashboard :: panelSuperior}">    
+        </nav>
+
+        <!-- Modales de producto -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Registro del producto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="miFormulario">
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="nombres">Nombres</label>
+                                <input class="form-control" id="nombres" type="text">
+                            </div>
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="descripcion">Descripcion</label>
+                                <textarea id="descripcion" class="form-control"></textarea>
+                            </div>
+
+                            <div class=" flex-grow-1 d-flex gap-2">
+                                <div class="flex-grow-1 w-50">
+                                    <label class="col-form-label" style="font-weight: 700;" for="categoria">Categorias
+                                    </label>
+                                    <select class="form-select form-select" name="distritos" id="categoria" required>
+                                        <option value="ancon">Ancón</option>
+                                        <option value="ate">Ate</option>
+                                        <option value="barranco">Barranco</option>
+                                    </select>
+                                </div>
+                                <div class="flex-grow-1 w-50">
+                                    <div class="mb-2 flex-grow-1">
+                                        <label class="col-form-label " style="font-weight: 700;"
+                                               for="stock">Stock</label>
+                                        <input class="form-control form-control " id="stock" type="number">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 mb-4">
+                                <div class="mb-2 flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="P_compra">Precio
+                                        de compra</label>
+                                    <input class="form-control form-control" id="P_compra" type="number">
+                                </div>
+                                <div class="mb-2 flex-grow-1">
+                                    <label class="col-form-label " style="font-weight: 700;"
+                                           for="P_venta">Precio de venta</label>
+                                    <input class="form-control form-control " id="P_venta" type="number">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Actualizar  producto</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="miFormulario2">
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="nombres2">Nombres</label>
+                                <input class="form-control" id="nombres2" type="text">
+                            </div>
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="descripcion2">Descripcion</label>
+                                <textarea id="descripcion2" class="form-control"></textarea>
+                            </div>
+
+                            <div class="flex-grow-1 d-flex gap-2">
+                                <div class="flex-grow-1 w-50">
+                                    <label class="col-form-label" style="font-weight: 700;" for="categoria2">Categorias
+                                    </label>
+                                    <select class="form-select form-select" name="distritos" id="categoria2" required>
+                                        <option value="ancon">Ancón</option>
+                                        <option value="ate">Ate</option>
+                                        <option value="barranco">Barranco</option>
+                                    </select>
+                                </div>
+                                <div class="flex-grow-1 w-50">
+                                    <label class="col-form-label " style="font-weight: 700;"
+                                           for="stock2">Stock</label>
+                                    <input class="form-control form-control " id="stock2" type="number">
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-2 mb-4">
+                                <div class="mb-2 flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="P_compra2">Precio
+                                    </label>
+                                    <input class="form-control form-control" id="P_compra2" type="number">
+                                </div>
+                                <div class="mb-2 flex-grow-1">
+                                    <label class="col-form-label " style="font-weight: 700;"
+                                           for="P_venta2">Stock</label>
+                                    <input class="form-control form-control " id="P_venta2" type="number">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Actualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modales de categoria -->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel3">Registro del Categoria</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="miFormulario3">
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="nombres3">Nombres</label>
+                                <input class="form-control" id="nombres3" type="text">
+                            </div>
+                            <div class="mb-2 flex-grow-1 mb-4">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="descripcion3">Descripcion</label>
+                                <textarea id="descripcion3" class="form-control"></textarea>
+                            </div>
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel4">Actualizar categoria</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="miFormulario4">
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="nombres4">Nombres</label>
+                                <input class="form-control" id="nombres4" type="text">
+                            </div>
+                            <div class="mb-2 flex-grow-1 mb-4">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="descripcion4">Descripcion</label>
+                                <textarea id="descripcion4" class="form-control"></textarea>
+                            </div>
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Actualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="layoutSidenav">
+            <div th:replace="~{layout/plantillaDashboard :: panelLateral}">
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Main page content-->
+                    <div class="row">
+                        <div class="col-xxl-12 mt-4">
+                            <!-- Tabbed dashboard card example-->
+                            <div class="card mb-4">
+                                <div class="card-header border-bottom">
+                                    <!-- Dashboard card navigation-->
+                                    <ul class="nav nav-tabs card-header-tabs" id="dashboardNav" role="tablist">
+                                        <li class="nav-item me-1"><a class="nav-link active" id="overview-pill"
+                                                                     href="#overview" data-bs-toggle="tab" role="tab"
+                                                                     aria-controls="overview" aria-selected="true">
+                                            Productos</a></li>
+                                        <li class="nav-item"><a class="nav-link" id="activities-pill"
+                                                                href="#activities" data-bs-toggle="tab" role="tab"
+                                                                aria-controls="activities" aria-selected="false">
+                                            Categorias</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content" id="dashboardNavContent">
+                                        <!-- Dashboard Tab Pane 1-->
+                                        <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-pill">
+                                            <div class="card mb-4">
+                                                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        style="font-weight: 700;">Agregar producto</button>
+                                                <div class="table-responsive card-body">
+                                                    <table id="datatablesSimple" class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Descripcion</th>
+                                                            <th scope="col">Categoria</th>
+                                                            <th scope="col">Precio compra</th>
+                                                            <th scope="col">Precio venta</th>
+                                                            <th scope="col">Stock</th>
+                                                            <th scope="col">Acciones</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Martillo</td>
+                                                            <td>solet mattis necessitatibus ignota eirmod legere maiestatis
+                                                                sollicitudin persecuti</td>
+                                                            <td>Cate 1</td>
+                                                            <td>S/5.00</td>
+                                                            <td>S/5.00</td>
+                                                            <td>30</td>
+                                                            <td class="d-flex justify-content-center">
+
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarProducto()" class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <!-- Dashboard Tab Pane 2-->
+                                        <div class="tab-pane fade" id="activities" role="tabpanel" aria-labelledby="overview-pill">
+                                            <div class="card mb-4">
+                                                <button class="btn btn-success" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal3"
+                                                        style="font-weight: 700;">Agregar categoria</button>
+                                                <div class="table-responsive card-body">
+                                                    <table id="tablaCategorias" class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Descripcion</th>
+                                                            <th scope="col">Acciones</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td class="d-flex justify-content-center">
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarCategoria()"
+                                                                       class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal4"
+                                                                       class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>                        
+                    </div>
+                </main>
+                
+            </div>
+        </div>
+        <div th:replace="~{layout/plantillaDashboard :: piePagina}">
+        </div>
+        
+    </body>
+</html>
