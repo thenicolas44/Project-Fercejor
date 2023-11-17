@@ -287,10 +287,10 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
+                                                        <tr th:each="item: ${listaCategoria}">
+                                                            <th th:text="${item.idCategoria}" >1</th>
+                                                            <td th:text="${item.nombreCategoria}">Mark</td>
+                                                            <td th:text="${item.descripcionCategoria}">Otto</td>
                                                             <td class="d-flex justify-content-center">
                                                                 <button class="btn btn-danger p-1">
                                                                     <i onclick="eliminarCategoria()"
