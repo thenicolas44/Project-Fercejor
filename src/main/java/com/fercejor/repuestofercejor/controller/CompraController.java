@@ -31,6 +31,7 @@ public class CompraController {
 
         modelo.addAttribute("cabezeraCompra", cbzCompraEntity);
 
+        modelo.addAttribute("listaCompras", cbzCompraService.listarCabezeraCompra());
         modelo.addAttribute("listaProductos", productoService.listaProductos());
         modelo.addAttribute("listarProveedor", proveedorService.listaProveedor());
         return "administrador/compras";

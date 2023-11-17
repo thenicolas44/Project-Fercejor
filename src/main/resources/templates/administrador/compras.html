@@ -179,24 +179,22 @@
                                                         <thead>
                                                         <tr>
                                                             <th scope="col">#</th>
-                                                            <th scope="col">Nombre</th>
                                                             <th scope="col">Proveedor</th>
                                                             <th scope="col">Producto</th>
-                                                            <th scope="col">P. venta</th>
+                                                            <th scope="col">P. compra</th>
                                                             <th scope="col">Cantidad</th>
                                                             <th scope="col">Total</th>
                                                             <th scope="col">Acciones</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Marcos Daniel</td>
-                                                            <td>Romero Garcia</td>
-                                                            <td>Martillo y clavos</td>
-                                                            <td>Peru</td>
-                                                            <td>5</td>
-                                                            <td>S/100.50</td>
+                                                        <tr th:each="item: ${listaCompras}">
+                                                            <th th:text="${item.idCbzCompra}">1</th>
+                                                            <td th:text="${item.proveedorCbzCompra.nombreProveedor}">Romero Garcia</td>
+                                                            <td th:text="${item.productoCbzCompra.nombreProducto}">Martillo y clavos</td>
+                                                            <td th:text="${item.precioCbzCompra}">Peru</td>
+                                                            <td th:text="${item.cantidadCbzCompra}">5</td>
+                                                            <td th:text="${item.totalCbzCompra}">S/100.50</td>
                                                             <td>
                                                                 <div class="d-flex gap-2">
                                                                     <div>
