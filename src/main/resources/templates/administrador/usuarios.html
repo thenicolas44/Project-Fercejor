@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head th:replace="~{layout/plantillaDashboard :: cabecera}">
+    </head>
+    <body class="nav-fixed">
+        <nav th:replace="~{layout/plantillaDashboard :: panelSuperior}">    
+        </nav>
+
+        <!-- Modales de empleado -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Registro del empleado</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaEmpleado" >
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EprimerNombre">
+                                    Primer nombre</label>
+                                    <input class="form-control " id="EprimerNombre" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EsegundoNombre">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="EsegundoNombre" type="text">
+                                </div>
+                            </div>
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EapellidoPaterno">
+                                        Apellido paterno</label>
+                                    <input class="form-control " id="EapellidoPaterno" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EapellidoMaterno">
+                                        Apellido materno</label>
+                                    <input class="form-control " id="EapellidoMaterno" type="text">
+                                </div>
+                            </div>
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="Ecorreo">Correo</label>
+                                <input class="form-control " id="Ecorreo" type="email">
+                            </div>
+
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="Edireccion">Direccion</label>
+                                <input class="form-control " id="Edireccion" type="text">
+                            </div>
+
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 align-items-center">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="Etelefono">
+                                        Telefono</label>
+                                    <input class="form-control " id="Etelefono" type="tel">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="Efecha">
+                                        Fecha</label>
+                                    <input class="form-control " id="Efecha" type="date">
+                                </div>
+                            </div>
+
+                            <div class="mb-4 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="Ecategoria">Estado
+                                </label>
+                                <select class="form-select form-select" name="distritos" id="Ecategoria" required>
+                                    <option value="">>--Selecciona una opcion--<</option>
+                                    <option value="ate">Activo</option>
+                                    <option value="barranco">Inactivo</option>
+                                </select>
+                            </div>
+
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Actualizacion del empleado</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaEmpleadoE">
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EprimerNombreE">
+                                        Primer nombre</label>
+                                    <input class="form-control " id="EprimerNombreE" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EsegundoNombreE">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="EsegundoNombreE" type="text">
+                                </div>
+                            </div>
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EapellidoPaternoE">
+                                        Apellido paterno</label>
+                                    <input class="form-control " id="EapellidoPaternoE" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EapellidoMaternoE">
+                                        Apellido materno</label>
+                                    <input class="form-control " id="EapellidoMaternoE" type="text">
+                                </div>
+                            </div>
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="EcorreoE">Correo</label>
+                                <input class="form-control " id="EcorreoE" type="email">
+                            </div>
+
+                            <div class="mb-2 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;"
+                                       for="EdireccionE">Direccion</label>
+                                <input class="form-control " id="EdireccionE" type="text">
+                            </div>
+
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 align-items-center">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EtelefonoE">
+                                        Telefono</label>
+                                    <input class="form-control " id="EtelefonoE" type="tel">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EfechaE">
+                                        Fecha</label>
+                                    <input class="form-control " id="EfechaE" type="date">
+                                </div>
+                            </div>
+
+                            <div class="mb-4 flex-grow-1">
+                                <label class="col-form-label" style="font-weight: 700;" for="EcategoriaE">Estado
+                                </label>
+                                <select class="form-select form-select" name="distritos" id="EcategoriaE" required>
+                                    <option value=""> >--Selecciona una opcion--< </option>
+                                    <option value="ate">Activo</option>
+                                    <option value="barranco">Inactivo</option>
+                                </select>
+                            </div>
+
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modales de cargo -->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel3">Registro del cargo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaCargo" >
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="Cnombre">
+                                        Primer nombre</label>
+                                    <input class="form-control " id="Cnombre" type="text">
+                                </div>
+                                <div class="flex-grow-1 mb-4">
+                                    <label class="col-form-label" style="font-weight: 700;" for="Cdescripcion">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="Cdescripcion" type="text">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel4">Actualizacion del cargo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaCargoE">
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column mb-4">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="CarNombre">
+                                        Primer nombre</label>
+                                    <input class="form-control " id="CarNombre" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="CarDescripcion">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="CarDescripcion" type="text">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modales de Area -->
+        <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel3"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel5">Registro del Area</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaArea" >
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="AreaNombre">
+                                        Primer nombre</label>
+                                    <input class="form-control " id="AreaNombre" type="text">
+                                </div>
+                                <div class="flex-grow-1 mb-4">
+                                    <label class="col-form-label" style="font-weight: 700;" for="AreaDescripcion">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="AreaDescripcion" type="text">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel4"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel6">Actualizacion del area</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablaAreaE">
+                            <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column mb-4">
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="AreaNombreE">
+                                        Primer nombre</label>
+                                    <input class="form-control " id="AreaNombreE" type="text">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <label class="col-form-label" style="font-weight: 700;" for="AreaDescE">
+                                        Segundo nombre</label>
+                                    <input class="form-control " id="AreaDescE" type="text">
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
+                                <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
+                                        type="reset">Limpiar</button>
+                                <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
+                                        type="submit">Actualizar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="layoutSidenav">
+            <div th:replace="~{layout/plantillaDashboard :: panelLateral}">
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Main page content-->
+                    <div class="row">
+                        <div class="col-xxl-12 mt-4">
+                            <!-- Tabbed dashboard card example-->
+                            <div class="card mb-4">
+                                <div class="card-header border-bottom">
+                                    <!-- Dashboard card navigation-->
+                                    <ul class="nav nav-tabs card-header-tabs" id="dashboardNav" role="tablist">
+                                        <li class="nav-item me-1"><a class="nav-link active" id="overview-pill"
+                                                                     href="#empleado" data-bs-toggle="tab" role="tab"
+                                                                     aria-controls="overview" aria-selected="true">
+                                            Empleado</a></li>
+                                        <li class="nav-item"><a class="nav-link" id="activities-pill"
+                                                                href="#cargo" data-bs-toggle="tab" role="tab"
+                                                                aria-controls="activities" aria-selected="false">
+                                            Cargo</a></li>
+                                        <li class="nav-item"><a class="nav-link" id="activities-pill2"
+                                                                href="#area" data-bs-toggle="tab" role="tab"
+                                                                aria-controls="activities" aria-selected="false">
+                                            Area</a></li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content" id="dashboardNavContent">
+                                        <!-- Dashboard Tab Pane 1-->
+                                        <div class="tab-pane fade show active" id="empleado" role="tabpanel"
+                                             aria-labelledby="overview-pill">
+                                            <div class="card mb-4" >
+                                                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        style="font-weight: 700;">Agregar empleado</button>
+                                                <div class="table-responsive card-body">
+                                                    <table id="tablaEmple" class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nombres</th>
+                                                            <th scope="col">Apellido</th>
+                                                            <th scope="col">Correo</th>
+                                                            <th scope="col">Direccion</th>
+                                                            <th scope="col">Telefono</th>
+                                                            <th scope="col">F. Contrato</th>
+                                                            <th scope="col">Estado</th>
+                                                            <th scope="col">Cargo</th>
+                                                            <th scope="col">Acciones</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Marcos Daniel</td>
+                                                            <td>Romero Garcia</td>
+                                                            <td>marcos@hotmail.com</td>
+                                                            <td>Peru</td>
+                                                            <td>967210541</td>
+                                                            <td>10/10/2023</td>
+                                                            <td>
+                                                                <span class="badge bg-success">Activo</span>
+                                                            </td>
+                                                            <td>Dueño</td>
+                                                            <td class="d-flex justify-content-center">
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarEmpleado()"
+                                                                       class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-info p-1">
+                                                                    <i onclick="generarCreden()"
+                                                                    class="bi bi-person-vcard-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Marcos Daniel</td>
+                                                            <td>Romero Garcia</td>
+                                                            <td>marcos@hotmail.com</td>
+                                                            <td>Peru</td>
+                                                            <td>967210541</td>
+                                                            <td>10/10/2023</td>
+                                                            <td>
+                                                                <span class="badge bg-success">Activo</span>
+                                                            </td>
+                                                            <td>Dueño</td>
+                                                            <td class="d-flex justify-content-center">
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarEmpleado()"
+                                                                       class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-info p-1">
+                                                                    <i onclick="NOgenerarCreden()"
+                                                                       class="bi bi-person-vcard-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+
+                                                            </td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <!-- Dashboard Tab Pane 2-->
+                                        <div class="tab-pane fade" id="cargo" role="tabpanel"
+                                             aria-labelledby="overview-pill">
+                                            <div class="card mb-4">
+                                                <button class="btn btn-success" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal3"
+                                                        style="font-weight: 700;">Agregar cargo</button>
+                                                <div class="table-responsive card-body">
+                                                    <table id="tablaEmpleE" class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Descripcion</th>
+                                                            <th scope="col">Acciones</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td class="d-flex justify-content-center">
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarCargo()"
+                                                                       class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal4"
+                                                                       class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Dashboard Tab Pane 3-->
+                                        <div class="tab-pane fade" id="area" role="tabpanel"
+                                             aria-labelledby="overview-pill">
+                                            <div class="card mb-4">
+                                                <button class="btn btn-success" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal5"
+                                                        style="font-weight: 700;">Agregar area</button>
+                                                <div class="table-responsive card-body">
+                                                    <table id="tablaCategorias" class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nombre</th>
+                                                            <th scope="col">Descripcion</th>
+                                                            <th scope="col">Acciones</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td class="d-flex justify-content-center">
+                                                                <button class="btn btn-danger p-1">
+                                                                    <i onclick="eliminarArea()"
+                                                                       class="bi bi-trash3-fill"
+                                                                       style="color: white;
+                                                                   font-size: 1rem"></i>
+                                                                </button>
+                                                                <button class="btn btn-dark p-1">
+                                                                    <i data-bs-toggle="modal"
+                                                                       data-bs-target="#exampleModal6"
+                                                                       class="bi bi-pencil-fill"
+                                                                       style="font-size: 1rem"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>                        
+                    </div>
+                </main>
+                
+            </div>
+        </div>
+        <div th:replace="~{layout/plantillaDashboard :: piePagina}">
+        </div>
+        
+    </body>
+</html>
