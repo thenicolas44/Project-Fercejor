@@ -1,11 +1,13 @@
 package com.fercejor.repuestofercejor.model.entity;
 
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "PROVEEDOR")
-public class ProveedorEntity {
+public class ProveedorEntity implements Serializable{
     @Id
     @Column(name = "ID_PROVEEDOR" , length = 10, nullable = false)
     private String idProveedor;

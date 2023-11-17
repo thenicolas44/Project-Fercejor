@@ -1,4 +1,5 @@
 package com.fercejor.repuestofercejor.model.entity;
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -7,7 +8,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "CABECERA_COMPRA")
-public class CbzCompraEntity {
+public class CbzCompraEntity implements Serializable{
     @Id
     @Column(name = "ID_CABECERA_COMPRA" , length = 10, nullable = false)
     private String idCbzCompra;

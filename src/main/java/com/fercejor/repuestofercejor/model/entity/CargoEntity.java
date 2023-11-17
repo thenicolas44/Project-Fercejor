@@ -1,9 +1,11 @@
 package com.fercejor.repuestofercejor.model.entity;
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "CARGO")
-public class CargoEntity {
+public class CargoEntity implements Serializable{
     @Id
     @Column(name = "ID_CARGO" , length = 10, nullable = false)
     private String idCargo;
