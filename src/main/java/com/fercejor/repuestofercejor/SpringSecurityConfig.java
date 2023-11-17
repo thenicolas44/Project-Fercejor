@@ -21,7 +21,7 @@ public class SpringSecurityConfig {
         http.authorizeHttpRequests((authorize) -> authorize
         .requestMatchers("/login/*").permitAll()
         .anyRequest().authenticated())
-        .formLogin((formLogin) -> {formLogin.defaultSuccessUrl("/dash/", true).loginPage("/login/");})
+        .formLogin((formLogin) -> {formLogin.defaultSuccessUrl("/fercejor/", true).loginPage("/login/");})
         .logout((logout) -> {logout.permitAll();});
         return http.build();
     }
