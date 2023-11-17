@@ -364,18 +364,18 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Marcos Daniel</td>
-                                                            <td>Romero Garcia</td>
-                                                            <td>marcos@hotmail.com</td>
-                                                            <td>Peru</td>
-                                                            <td>967210541</td>
-                                                            <td>10/10/2023</td>
+                                                        <tr th:each="item: ${listaEmpleado}">
+                                                            <th th:text="${item.idEmpleado}">1</th>
+                                                            <td th:text="${item.primerNombreEmpleado}">Marcos Daniel</td>
+                                                            <td th:text="${item.apellidoPaternoEmpleado}">Romero Garcia</td>
+                                                            <td th:text="${item.correoEmpleado}">marcos@hotmail.com</td>
+                                                            <td th:text="${item.direccionEmpleado}">Peru</td>
+                                                            <td th:text="${item.telefonoEmpleado}">967210541</td>
+                                                            <td th:text="${item.fechaContratoEmpleado}">10/10/2023</td>
                                                             <td>
                                                                 <span class="badge bg-success">Activo</span>
                                                             </td>
-                                                            <td>Dueño</td>
+                                                            <td th:text="${item.cargo.nombreCargo}">Dueño</td>
                                                             <td class="d-flex justify-content-center">
                                                                 <button class="btn btn-danger p-1">
                                                                     <i onclick="eliminarEmpleado()"
@@ -452,10 +452,10 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
+                                                        <tr th:each="item: ${listaCargo}">
+                                                            <th th:text="${item.idCargo}">1</th>
+                                                            <td th:text="${item.nombreCargo}">Mark</td>
+                                                            <td th:text="${item.descripcionCargo}">Otto</td>
                                                             <td class="d-flex justify-content-center">
                                                                 <button class="btn btn-danger p-1">
                                                                     <i onclick="eliminarCargo()"
