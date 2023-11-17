@@ -9,8 +9,8 @@
         <!-- Modales de Venta -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
+                <div class="modal-content"  >
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel5">Registro de venta</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -18,40 +18,87 @@
                     <div class="modal-body">
                         <form id="tablaVentas" >
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="ventasNombre">
-                                        Cliente</label>
-                                    <input class="form-control " id="ventasNombre" type="text">
+                                <p class="m-0 fw-bold fs-1 badge bg-primary">Cliente</p>
+                                <div class="d-flex flex-column flex-grow-1">
+                                    <div class="flex-grow-1 border border-2 rounded px-3 py-2 mb-2">
+                                        <div class="d-flex gap-3">
+                                            <div class="flex-grow-1 w-50">
+                                                <label class="col-form-label" style="font-weight: 700;" for="AventasNombre">
+                                                    Nombres</label>
+                                                <input class="form-control " id="AventasNombre" type="text">
+                                            </div>
+                                            <div class="flex-grow-1 w-50">
+                                                <label class="col-form-label" style="font-weight: 700;" for="AventasApellido">
+                                                    Apellidos</label>
+                                                <input class="form-control " id="AventasApellido" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label class="col-form-label" style="font-weight: 700;" for="AventasCorreo">
+                                                Correo</label>
+                                            <input class="form-control " id="AventasCorreo" type="text">
+                                        </div>
+
+                                        <div>
+                                            <label class="col-form-label" style="font-weight: 700;" for="AventasDireccion">
+                                                Direccion</label>
+                                            <input class="form-control " id="AventasDireccion" type="text">
+                                        </div>
+
+                                        <div class="d-flex gap-3 pb-3">
+                                            <div class="w-50 flex-grow-1">
+                                                <label class="col-form-label" style="font-weight: 700;" for="AventasTelefono">
+                                                    Telefono</label>
+                                                <input class="form-control " id="AventasTelefono" type="text">
+                                            </div>
+
+                                            <div class="w-50 flex-grow-1">
+                                                <label class="col-form-label" style="font-weight: 700;" for="AventasPais">
+                                                    Pais</label>
+                                                <input class="form-control " id="AventasPais" type="text">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <label class="col-form-label" style="font-weight: 700;" for="AventasEmpleado">
+                                            Empleado</label>
+                                        <select class="form-control " id="AventasEmpleado" type="text">
+                                            <option selected>Elige el empleado</option>
+                                            <option value="1">One</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <label class="col-form-label" style="font-weight: 700;" for="AventasProducto">
+                                            Producto</label>
+                                        <select class="form-control " id="AventasProducto" type="text">
+                                            <option selected>Elige el producto</option>
+                                            <option value="1">One</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between gap-3">
+                                        <div class="flex-grow-1">
+                                            <label class="col-form-label" style="font-weight: 700;" for="AventasPrecio">
+                                                Precio</label>
+                                            <input class="form-control " id="AventasPrecio" type="text">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <label class="col-form-label" style="font-weight: 700;" for="AventasCantidad">
+                                                Cantidad</label>
+                                            <input class="form-control " id="AventasCantidad" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 mb-4">
+                                        <label class="col-form-label" style="font-weight: 700;" for="AventasTotal">
+                                            Precio total</label>
+                                        <input class="form-control " id="AventasTotal" type="text" disabled>
+                                    </div>
                                 </div>
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="ventasDescrippcion">
-                                        Empleado</label>
-                                    <input class="form-control " id="ventasDescrippcion" type="text">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="ventasProducto">
-                                        Producto</label>
-                                    <input class="form-control " id="ventasProducto" type="text">
                                 </div>
 
-                                <div class="d-flex justify-content-between gap-3">
-                                    <div class="flex-grow-1">
-                                        <label class="col-form-label" style="font-weight: 700;" for="ventasPrecio">
-                                            Precio</label>
-                                        <input class="form-control " id="ventasPrecio" type="text">
-                                    </div>
-                                    <div class="flex-grow-1">
-                                        <label class="col-form-label" style="font-weight: 700;" for="ventasCantidad">
-                                            Cantidad</label>
-                                        <input class="form-control " id="ventasCantidad" type="text">
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 mb-4">
-                                    <label class="col-form-label" style="font-weight: 700;" for="ventasTotal">
-                                        Precio total</label>
-                                    <input class="form-control " id="ventasTotal" type="text" disabled>
-                                </div>
-                            </div>
 
                             <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
                                 <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
@@ -75,46 +122,93 @@
                     <div class="modal-body">
                         <form id="AtablaVentas" >
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="AventasNombre">
-                                        Cliente</label>
-                                    <input class="form-control " id="AventasNombre" type="text">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="AventasDescrippcion">
-                                        Empleado</label>
-                                    <input class="form-control" id="AventasDescrippcion" type="text">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="AventasProducto">
-                                        Producto</label>
-                                    <input class="form-control " id="AventasProducto" type="text">
-                                </div>
+                                <p class="m-0 fw-bold fs-1 badge bg-primary">Cliente</p>
+                                <div class="d-flex flex-column flex-grow-1">
+                                    <div class="flex-grow-1 border border-2 rounded px-3 py-2 mb-2">
+                                        <div class="d-flex gap-3">
+                                            <div class="flex-grow-1 w-50">
+                                                <label class="col-form-label" style="font-weight: 700;" for="EventasNombre">
+                                                    Nombres</label>
+                                                <input class="form-control " id="EventasNombre" type="text">
+                                            </div>
+                                            <div class="flex-grow-1 w-50">
+                                                <label class="col-form-label" style="font-weight: 700;" for="EventasApellido">
+                                                    Apellidos</label>
+                                                <input class="form-control " id="EventasApellido" type="text">
+                                            </div>
+                                        </div>
 
-                                <div class="d-flex justify-content-between gap-3">
-                                    <div class="flex-grow-1">
-                                        <label class="col-form-label" style="font-weight: 700;" for="AventasPrecio">
-                                            Precio</label>
-                                        <input class="form-control " id="AventasPrecio" type="text">
+                                        <div>
+                                            <label class="col-form-label" style="font-weight: 700;" for="EventasCorreo">
+                                                Correo</label>
+                                            <input class="form-control " id="EventasCorreo" type="text">
+                                        </div>
+
+                                        <div>
+                                            <label class="col-form-label" style="font-weight: 700;" for="EventasCorreo">
+                                                Direccion</label>
+                                            <input class="form-control " id="EventasCorreo" type="text">
+                                        </div>
+
+                                        <div class="d-flex gap-3 pb-3">
+                                            <div class="w-50 flex-grow-1">
+                                                <label class="col-form-label" style="font-weight: 700;" for="EventasTelefono">
+                                                    Telefono</label>
+                                                <input class="form-control " id="EventasTelefono" type="text">
+                                            </div>
+
+                                            <div class="w-50 flex-grow-1">
+                                                <label class="col-form-label" style="font-weight: 700;" for="EventasPais">
+                                                    Pais</label>
+                                                <input class="form-control " id="EventasPais" type="text">
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                     <div class="flex-grow-1">
-                                        <label class="col-form-label" style="font-weight: 700;" for="AventasCantidad">
-                                            Cantidad</label>
-                                        <input class="form-control " id="AventasCantidad" type="text">
+                                        <label class="col-form-label" style="font-weight: 700;" for="EventasDescrippcion">
+                                            Empleado</label>
+                                        <select class="form-control " id="EventasDescrippcion" type="text">
+                                            <option selected>Elige el empleado</option>
+                                            <option value="1">One</option>
+                                        </select>
                                     </div>
-                                </div>
-                                <div class="flex-grow-1 mb-4">
-                                    <label class="col-form-label" style="font-weight: 700;" for="AventasTotal">
-                                        Precio total</label>
-                                    <input class="form-control " id="AventasTotal" type="text" disabled>
+                                    <div class="flex-grow-1">
+                                        <label class="col-form-label" style="font-weight: 700;" for="EventasProducto">
+                                            Producto</label>
+                                        <select class="form-control " id="EventasProducto" type="text">
+                                            <option selected>Elige el producto</option>
+                                            <option value="1">One</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between gap-3">
+                                        <div class="flex-grow-1">
+                                            <label class="col-form-label" style="font-weight: 700;" for="EventasPrecio">
+                                                Precio</label>
+                                            <input class="form-control " id="EventasPrecio" type="text">
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <label class="col-form-label" style="font-weight: 700;" for="EventasCantidad">
+                                                Cantidad</label>
+                                            <input class="form-control " id="EventasCantidad" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 mb-4">
+                                        <label class="col-form-label" style="font-weight: 700;" for="EventasTotal">
+                                            Precio total</label>
+                                        <input class="form-control " id="EventasTotal" type="text" disabled>
+                                    </div>
                                 </div>
                             </div>
+
 
                             <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
                                 <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
                                         type="reset">Limpiar</button>
                                 <button class="btn btn-success flex-grow-1 rounded-start-0 m-0" style="font-weight: 700;"
-                                        type="submit">Actualizar</button>
+                                        type="submit">Registrar</button>
                             </div>
                         </form>
                     </div>
