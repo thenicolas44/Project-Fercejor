@@ -1,5 +1,7 @@
 package com.fercejor.repuestofercejor.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +53,10 @@ public class CompraController {
             String nuevoID = String.format("CZCM%04d", numero);
             cbzCompra.setIdCbzCompra(nuevoID);
         }
+        LocalDate fechaActual = LocalDate.now();
+        
+        Date dateFechaActual = java.sql.Date.valueOf(fechaActual);
+        cbzCompra.setFechaCbzCompra(dateFechaActual);
         cbzCompraService.guardarCabezeraCompra(cbzCompra);
         
         return "redirect:/compras/";
