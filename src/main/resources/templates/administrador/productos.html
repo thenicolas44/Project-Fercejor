@@ -241,15 +241,15 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Martillo</td>
-                                                            <td>solet mattis necessitatibus ignota eirmod legere maiestatis
+                                                        <tr th:each="item: ${listaProducto}">
+                                                            <th th:text="${item.idProducto}">1</th>
+                                                            <td th:text="${item.nombreProducto}" >Martillo</td>
+                                                            <td th:text="${item.descripcionProducto}">solet mattis necessitatibus ignota eirmod legere maiestatis
                                                                 sollicitudin persecuti</td>
-                                                            <td>Cate 1</td>
-                                                            <td>S/5.00</td>
-                                                            <td>S/5.00</td>
-                                                            <td>30</td>
+                                                            <td th:text="${item.categoria.idCategoria}">Cate 1</td>
+                                                            <td th:text="${item.precioComProducto}">S/5.00</td>
+                                                            <td th:text="${item.precioVenProducto}">S/5.00</td>
+                                                            <td th:text="${item.stockProducto}">30</td>
                                                             <td class="d-flex justify-content-center">
 
                                                                 <button class="btn btn-danger p-1">
