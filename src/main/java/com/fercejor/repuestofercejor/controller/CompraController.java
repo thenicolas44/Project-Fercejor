@@ -8,17 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fercejor.repuestofercejor.model.entity.CbzCompraEntity;
-import com.fercejor.repuestofercejor.model.entity.DtllCompraEntity;
 import com.fercejor.repuestofercejor.model.service.inteface.ICbzCompraService;
-import com.fercejor.repuestofercejor.model.service.inteface.IDtllCompraService;
 import com.fercejor.repuestofercejor.model.service.inteface.IProductoService;
 import com.fercejor.repuestofercejor.model.service.inteface.IProveedorService;
 
 @Controller
 @RequestMapping("/compras")
 public class CompraController {
-    @Autowired
-    private IDtllCompraService dtllCompraService;
     @Autowired
     private ICbzCompraService cbzCompraService;
     @Autowired
@@ -29,11 +25,9 @@ public class CompraController {
 
     @RequestMapping("/")
     public String inicio(Model modelo){
-        DtllCompraEntity dtllCompraEntity = new DtllCompraEntity();
         CbzCompraEntity cbzCompraEntity = new CbzCompraEntity();
 
         modelo.addAttribute("cabezeraCompra", cbzCompraEntity);
-        modelo.addAttribute("detalleCompra", dtllCompraEntity);
 
         modelo.addAttribute("listaProductos", productoService.listaProductos());
         modelo.addAttribute("listarProveedor", proveedorService.listaProveedor());
@@ -41,7 +35,7 @@ public class CompraController {
     }
 
     @RequestMapping("/guardar")
-    public String guardar(CbzCompraEntity cbzCompra, DtllCompraEntity dtllCompra){
+    public String guardar(CbzCompraEntity cbzCompra){
 
         //Generar ID de la Cabezera
         List<CbzCompraEntity> ListCbzCompra = cbzCompraService.listarCabezeraCompra();
@@ -59,21 +53,6 @@ public class CompraController {
         }
         cbzCompraService.guardarCabezeraCompra(cbzCompra);
         
-        //Generar Id de detalle
-        List<DtllCompraEntity> ListDtllCompra = dtllCompraService.listarDetalleCompra();
-        if(ListDtllCompra.size() == 0){
-            String id_dtllCompra = "DTCM0001";
-            dtllCompra.setIdDtllCompra(id_dtllCompra);
-        }
-        else{
-            DtllCompraEntity ultimoDtllCompra = ListDtllCompra.get(ListDtllCompra.size()-1);
-            String UltimoID = ultimoDtllCompra.getIdDtllCompra();
-            int numerito = Integer.parseInt(UltimoID.substring(4));
-            numerito++;
-            String NuevoID = String.format("DTCM%04d", numerito);
-            dtllCompra.setIdDtllCompra(NuevoID);
-        }
-        dtllCompraService.guardarDetalleCompra(dtllCompra);
         return "redirect:/compras/";
     }
 }

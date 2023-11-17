@@ -17,9 +17,22 @@ public class CbzCompraEntity implements Serializable{
     @Column(name = "FECHA_PEDIDO", nullable = false)
     private Date fechaCbzCompra;
 
+    @Column(name = "CANTIDAD", length = 20, nullable = false)
+    private Integer cantidadCbzCompra;
+
+    @Column(name = "PRECIOCOMPRA", nullable = false)
+    private Double precioCbzCompra;
+
+    @Column(name = "TOTAL", nullable = false)
+    private Double totalCbzCompra;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PROVEEDOR", nullable = false)
-    private ProveedorEntity proveedor;
+    private ProveedorEntity proveedorCbzCompra;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PRODUCTO", nullable = false)
+    private ProductoEntity productoCbzCompra;
 
     public String getIdCbzCompra() {
         return idCbzCompra;
@@ -37,12 +50,44 @@ public class CbzCompraEntity implements Serializable{
         this.fechaCbzCompra = fechaCbzCompra;
     }
 
-    public ProveedorEntity getProveedor() {
-        return proveedor;
+    public Integer getCantidadCbzCompra() {
+        return cantidadCbzCompra;
     }
 
-    public void setProveedor(ProveedorEntity proveedor) {
-        this.proveedor = proveedor;
+    public void setCantidadCbzCompra(Integer cantidadCbzCompra) {
+        this.cantidadCbzCompra = cantidadCbzCompra;
+    }
+
+    public Double getPrecioCbzCompra() {
+        return precioCbzCompra;
+    }
+
+    public void setPrecioCbzCompra(Double precioCbzCompra) {
+        this.precioCbzCompra = precioCbzCompra;
+    }
+
+    public Double getTotalCbzCompra() {
+        return totalCbzCompra;
+    }
+
+    public void setTotalCbzCompra(Double totalCbzCompra) {
+        this.totalCbzCompra = totalCbzCompra;
+    }
+
+    public ProveedorEntity getProveedorCbzCompra() {
+        return proveedorCbzCompra;
+    }
+
+    public void setProveedorCbzCompra(ProveedorEntity proveedorCbzCompra) {
+        this.proveedorCbzCompra = proveedorCbzCompra;
+    }
+
+    public ProductoEntity getProductoCbzCompra() {
+        return productoCbzCompra;
+    }
+
+    public void setProductoCbzCompra(ProductoEntity productoCbzCompra) {
+        this.productoCbzCompra = productoCbzCompra;
     }
 
     
