@@ -11,6 +11,8 @@ import com.fercejor.repuestofercejor.model.entity.CbzCompraEntity;
 import com.fercejor.repuestofercejor.model.entity.DtllCompraEntity;
 import com.fercejor.repuestofercejor.model.service.inteface.ICbzCompraService;
 import com.fercejor.repuestofercejor.model.service.inteface.IDtllCompraService;
+import com.fercejor.repuestofercejor.model.service.inteface.IProductoService;
+import com.fercejor.repuestofercejor.model.service.inteface.IProveedorService;
 
 @Controller
 @RequestMapping("/compras")
@@ -19,6 +21,11 @@ public class CompraController {
     private IDtllCompraService dtllCompraService;
     @Autowired
     private ICbzCompraService cbzCompraService;
+    @Autowired
+    private IProductoService productoService;
+    @Autowired
+    private IProveedorService proveedorService;
+
 
     @RequestMapping("/")
     public String inicio(Model modelo){
@@ -27,6 +34,9 @@ public class CompraController {
 
         modelo.addAttribute("cabezeraCompra", cbzCompraEntity);
         modelo.addAttribute("detalleCompra", dtllCompraEntity);
+
+        modelo.addAttribute("listaProductos", productoService.listaProductos());
+        modelo.addAttribute("listarProveedor", proveedorService.listaProveedor());
         return "administrador/compras";
     }
 

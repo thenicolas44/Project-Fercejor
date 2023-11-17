@@ -15,7 +15,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaCompras" >
+                        <form id="tablaCompras" th:action="@{/compras/guardar}" th:object="${detalleCompra}"  method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="comprasNombre">
@@ -26,11 +26,23 @@
                                     <label class="col-form-label" style="font-weight: 700;" for="comprasDescrippcion">
                                         Proveedor</label>
                                     <input class="form-control " id="comprasDescrippcion" type="text">
+                                    <!--
+                                    <select class="form-select form-select" name="provedores" id="comprasDescrippcion" required>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    -->
+                                    
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="comprasProducto">
                                         Producto</label>
+                                    <!--
                                     <input class="form-control " id="comprasProducto" type="text">
+                                    -->
+                                    <select class="form-select form-select" name="producto" id="comprasProducto" required>
+                                        <option th:each="prod: ${listaProductos}" th:value="${prod.idProducto}" th:text="${prod.nombreProducto}" ></option>
+                                    </select>
                                 </div>
 
                                 <div class="d-flex justify-content-between gap-3">
