@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fercejor.repuestofercejor.model.entity.CbzCompraEntity;
@@ -61,5 +62,12 @@ public class CompraController {
         cbzCompraService.guardarCabezeraCompra(cbzCompra);
         
         return "redirect:/compras/";
+    }
+    
+    @GetMapping("/vista/")
+    public String listarCom(Model modelo){
+        List<CbzCompraEntity> listarCompras = cbzCompraService.listarCabezeraCompra();
+        modelo.addAttribute("listadoCompras", listarCompras);
+        return "/compras/vista/lista";
     }
 }
