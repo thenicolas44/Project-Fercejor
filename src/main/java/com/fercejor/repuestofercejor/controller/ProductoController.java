@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fercejor.repuestofercejor.model.entity.CategoriaEntity;
@@ -71,6 +72,21 @@ public class ProductoController {
         }
 
         productoService.guardarProducto(producto);
+        return "redirect:/productos/";
+    }
+
+    @RequestMapping("/eliminarProd/{id}")
+    public String eliminarProd(
+        @PathVariable(value = "id") String id, Model model
+    ){
+        productoService.eliminarProducto(id);
+        return "redirect:/productos/";
+    }
+    @RequestMapping("/eliminarCate/{id}")
+    public String eliminarCate(
+        @PathVariable(value = "id") String id, Model model
+    ){
+        categoriaService.eliminarCategoria(id);
         return "redirect:/productos/";
     }
 }
