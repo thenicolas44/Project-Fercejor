@@ -142,15 +142,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="miFormulario3">
+                        <form id="miFormulario3" th:action="@{/productos/guardarCategoria}" th:object="${categoria}" method="post">
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;" for="nombres3">Nombres</label>
-                                <input class="form-control" id="nombres3" type="text">
+                                <input class="form-control" id="nombres3" th:field="*{nombreCategoria}" type="text">
                             </div>
                             <div class="mb-2 flex-grow-1 mb-4">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="descripcion3">Descripcion</label>
-                                <textarea id="descripcion3" class="form-control"></textarea>
+                                <textarea id="descripcion3" th:field="*{descripcionCategoria}" class="form-control"></textarea>
                             </div>
                             <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
                                 <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
