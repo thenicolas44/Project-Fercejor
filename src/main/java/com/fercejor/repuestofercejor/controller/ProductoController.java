@@ -54,4 +54,24 @@ public class ProductoController {
         categoriaService.guardarCategoria(categoria);
         return "redirect:/productos/";
     }
+
+    @RequestMapping("/guardarProducto")
+    public String guardarProd(ProductoEntity producto){
+        List<ProductoEntity> listProd = productoService.listaProductos();
+        if(listProd.size() == 0){
+            String id_prod = "PROD0001";
+            producto.setIdProducto(id_prod);
+        }
+        else{
+            ProductoEntity ultimoProducto = listProd.get(listProd.size()-1);
+            String ultimoID = ultimoProducto.getIdProducto();
+            int numero = Integer.parseInt(ultimoID.substring(4));
+            numero++;
+            String nuevoID = String.format("PROD%04d", numero);
+            producto.setIdProducto(nuevoID);
+        }
+
+        productoService.guardarProducto(producto);
+        return "redirect:/productos/";
+    }
 }

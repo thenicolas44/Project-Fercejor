@@ -15,32 +15,30 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="miFormulario">
+                        <form id="miFormulario" th:action="@{/productos/guardarProducto}"  th:object="${producto}" method="post">
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;" for="nombres">Nombres</label>
-                                <input class="form-control" id="nombres" type="text">
+                                <input class="form-control" id="nombres" th:field="*{nombreProducto}" type="text">
                             </div>
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="descripcion">Descripcion</label>
-                                <textarea id="descripcion" class="form-control"></textarea>
+                                <textarea id="descripcion" th:field="*{descripcionProducto}" class="form-control"></textarea>
                             </div>
 
                             <div class=" flex-grow-1 d-flex gap-2">
                                 <div class="flex-grow-1 w-50">
                                     <label class="col-form-label" style="font-weight: 700;" for="categoria">Categorias
                                     </label>
-                                    <select class="form-select form-select" name="distritos" id="categoria" required>
-                                        <option value="ancon">Ancón</option>
-                                        <option value="ate">Ate</option>
-                                        <option value="barranco">Barranco</option>
+                                    <select class="form-select form-select" th:field="*{categoria.idCategoria}" name="distritos" id="categoria" required>
+                                        <option th:each="cate : ${listaCategoria}" th:value="${cate.idCategoria}" th:text="${cate.nombreCategoria}">Ancón</option>
                                     </select>
                                 </div>
                                 <div class="flex-grow-1 w-50">
                                     <div class="mb-2 flex-grow-1">
                                         <label class="col-form-label " style="font-weight: 700;"
                                                for="stock">Stock</label>
-                                        <input class="form-control form-control " id="stock" type="number">
+                                        <input class="form-control form-control " th:field="*{stockProducto}" id="stock" type="number">
                                     </div>
                                 </div>
                             </div>
@@ -49,12 +47,12 @@
                                 <div class="mb-2 flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="P_compra">Precio
                                         de compra</label>
-                                    <input class="form-control form-control" id="P_compra" type="number">
+                                    <input class="form-control form-control" th:field="*{precioComProducto}"  id="P_compra" type="number">
                                 </div>
                                 <div class="mb-2 flex-grow-1">
                                     <label class="col-form-label " style="font-weight: 700;"
                                            for="P_venta">Precio de venta</label>
-                                    <input class="form-control form-control " id="P_venta" type="number">
+                                    <input class="form-control form-control " th:field="*{precioVenProducto}" id="P_venta" type="number">
                                 </div>
                             </div>
 
