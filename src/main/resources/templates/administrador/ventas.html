@@ -66,7 +66,7 @@
                                         <label class="col-form-label" style="font-weight: 700;" for="AventasEmpleado">
                                             Empleado</label>
                                         <select class="form-control " th:field="*{empleadoCbzVenta.idEmpleado}" id="AventasEmpleado" type="text">
-                                            <option th:each="empl : ${listaEmpleado}" th:value="${empl.idEmpleado}" th:text="${empl.primerNombreEmpleado} + ${empl.apellidoPaternoEmpleado}" >Elige el empleado</option>
+                                            <option th:each="empl : ${listaEmpleado}" th:value="${empl.idEmpleado}" th:text="${empl.primerNombreEmpleado}+ ' ' + ${empl.apellidoPaternoEmpleado}" >Elige el empleado</option>
                                         </select>
                                     </div>
                                     <div class="flex-grow-1">
@@ -271,14 +271,14 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Marcos Daniel</td>
-                                                            <td>Romero Garcia</td>
-                                                            <td>Martillo y clavos</td>
-                                                            <td>Peru</td>
-                                                            <td>5</td>
-                                                            <td>S/100.50</td>
+                                                        <tr th:each="item: ${listaVentas}">
+                                                            <th th:text="${item.idCbzVenta}">1</th>
+                                                            <td th:text="${item.clienteCbzVenta.nombreCliente}+' ' +${item.clienteCbzVenta.apellidoCliente}">Marcos Daniel</td>
+                                                            <td th:text="${item.empleadoCbzVenta.primerNombreEmpleado}+' '+${item.empleadoCbzVenta.apellidoPaternoEmpleado}">Romero Garcia</td>
+                                                            <td th:text="${item.productoCbzVenta.nombreProducto}">Martillo y clavos</td>
+                                                            <td th:text="${item.precioCbzVenta}">Peru</td>
+                                                            <td th:text="${item.cantidadCbzVenta}">5</td>
+                                                            <td th:text="${item.totalCbzVenta}">S/100.50</td>
                                                             <td>
                                                                 <div class="d-flex gap-2">
                                                                     <div>
