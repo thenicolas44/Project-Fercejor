@@ -111,14 +111,14 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr>
-                                                            <th>1</th>
-                                                            <td>Marcos Daniel</td>
-                                                            <td>Romero Garcia</td>
-                                                            <td>967210541</td>
-                                                            <td>Comas Lima</td>
-                                                            <td>marcos@hotmail.com</td>
-                                                            <td>Peru</td>
+                                                        <tr th:each="item: ${listaCliente}">
+                                                            <th th:text="${item.idCliente}">1</th>
+                                                            <td th:text="${item.nombreCliente}">Marcos Daniel</td>
+                                                            <td th:text="${item.apellidoCliente}">Romero Garcia</td>
+                                                            <td th:text="${item.telefonoCliente}">967210541</td>
+                                                            <td th:text="${item.direccionCliente}">Comas Lima</td>
+                                                            <td th:text="${item.correoCliente}">marcos@hotmail.com</td>
+                                                            <td th:text="${item.paisCliente}">Peru</td>
                                                             <td class="d-flex justify-content-center">
                                                                 <button class="btn btn-dark p-1">
                                                                     <i data-bs-toggle="modal"
