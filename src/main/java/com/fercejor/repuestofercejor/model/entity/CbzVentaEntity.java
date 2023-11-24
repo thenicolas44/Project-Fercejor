@@ -33,11 +33,22 @@ public class CbzVentaEntity {
     @Column(name = "CANTIDAD", length = 20 ,nullable = false)
     private Integer cantidadCbzVenta;
 
+    @Column(name = "PRECIOVENTA",nullable = false)
+    private Integer precioCbzVenta;
+
     @Column(name = "TOTAL", nullable = false)
     private Double totalCbzVenta;
 
     public String getIdCbzVenta() {
         return idCbzVenta;
+    }
+
+    public Integer getPrecioCbzVenta() {
+        return precioCbzVenta;
+    }
+
+    public void setPrecioCbzVenta(Integer precioCbzVenta) {
+        this.precioCbzVenta = precioCbzVenta;
     }
 
     public void setIdCbzVenta(String idCbzVenta) {

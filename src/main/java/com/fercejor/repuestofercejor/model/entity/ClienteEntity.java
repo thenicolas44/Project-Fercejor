@@ -15,14 +15,17 @@ public class ClienteEntity {
     @Column(name = "APELLIDO", length = 20, nullable = false)
     private String apellidoCliente;
 
-    @Column(name = "DIRECCION", length = 60, nullable = false)
+    @Column(name = "CORREO", length = 60, nullable = false)
+    private String correoCliente;
+
+    @Column(name = "DIRECCION", length = 100, nullable = false)
     private String direccionCliente;
 
-    @Column(name = "TELEFONO", length = 60, nullable = false)
+    @Column(name = "TELEFONO", length = 20, nullable = false)
     private String telefonoCliente;
 
 
-    @Column(name = "PAIS", length = 60, nullable = false)
+    @Column(name = "PAIS", length = 50, nullable = false)
     private String paisCliente;
 
 
@@ -83,6 +86,16 @@ public class ClienteEntity {
 
     public void setPaisCliente(String paisCliente) {
         this.paisCliente = paisCliente;
+    }
+
+
+    public String getCorreoCliente() {
+        return correoCliente;
+    }
+
+
+    public void setCorreoCliente(String correoCliente) {
+        this.correoCliente = correoCliente;
     }
 
 

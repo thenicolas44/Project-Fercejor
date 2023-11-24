@@ -16,7 +16,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaVentas" >
+                        <form id="tablaVentas" th:action="@{/ventas/guardar}" th:object="${cabezeraVenta}" method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
                                 <p class="m-0 fw-bold fs-1 badge bg-primary">Cliente</p>
                                 <div class="d-flex flex-column flex-grow-1">
@@ -25,38 +25,38 @@
                                             <div class="flex-grow-1 w-50">
                                                 <label class="col-form-label" style="font-weight: 700;" for="AventasNombre">
                                                     Nombres</label>
-                                                <input class="form-control " id="AventasNombre" type="text">
+                                                <input class="form-control " th:field="*{clienteCbzVenta.nombreCliente}" id="AventasNombre" type="text">
                                             </div>
                                             <div class="flex-grow-1 w-50">
                                                 <label class="col-form-label" style="font-weight: 700;" for="AventasApellido">
                                                     Apellidos</label>
-                                                <input class="form-control " id="AventasApellido" type="text">
+                                                <input class="form-control " th:field="*{clienteCbzVenta.apellidoCliente}" id="AventasApellido" type="text">
                                             </div>
                                         </div>
 
                                         <div>
                                             <label class="col-form-label" style="font-weight: 700;" for="AventasCorreo">
                                                 Correo</label>
-                                            <input class="form-control " id="AventasCorreo" type="text">
+                                            <input class="form-control " th:field="*{clienteCbzVenta.correoCliente}" id="AventasCorreo" type="text">
                                         </div>
 
                                         <div>
                                             <label class="col-form-label" style="font-weight: 700;" for="AventasDireccion">
                                                 Direccion</label>
-                                            <input class="form-control " id="AventasDireccion" type="text">
+                                            <input class="form-control " th:field="*{clienteCbzVenta.direccionCliente}" id="AventasDireccion" type="text">
                                         </div>
 
                                         <div class="d-flex gap-3 pb-3">
                                             <div class="w-50 flex-grow-1">
                                                 <label class="col-form-label" style="font-weight: 700;" for="AventasTelefono">
                                                     Telefono</label>
-                                                <input class="form-control " id="AventasTelefono" type="text">
+                                                <input class="form-control " th:field="*{clienteCbzVenta.telefonoCliente}" id="AventasTelefono" type="text">
                                             </div>
 
                                             <div class="w-50 flex-grow-1">
                                                 <label class="col-form-label" style="font-weight: 700;" for="AventasPais">
                                                     Pais</label>
-                                                <input class="form-control " id="AventasPais" type="text">
+                                                <input class="form-control " th:field="*{clienteCbzVenta.paisCliente}" id="AventasPais" type="text">
                                             </div>
                                         </div>
 
@@ -65,17 +65,15 @@
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="AventasEmpleado">
                                             Empleado</label>
-                                        <select class="form-control " id="AventasEmpleado" type="text">
-                                            <option selected>Elige el empleado</option>
-                                            <option value="1">One</option>
+                                        <select class="form-control " th:field="*{empleadoCbzVenta.idEmpleado}" id="AventasEmpleado" type="text">
+                                            <option th:each="empl : ${listaEmpleado}" th:value="${empl.idEmpleado}" th:text="${empl.primerNombreEmpleado} + ${empl.apellidoPaternoEmpleado}" >Elige el empleado</option>
                                         </select>
                                     </div>
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="AventasProducto">
                                             Producto</label>
-                                        <select class="form-control " id="AventasProducto" type="text">
-                                            <option selected>Elige el producto</option>
-                                            <option value="1">One</option>
+                                        <select class="form-control " th:field="*{productoCbzVenta.idProducto}" id="AventasProducto" type="text">
+                                            <option th:each="prod : ${listaProducto}" th:value="${prod.idProducto}" th:text="${prod.nombreProducto}" >Elige el producto</option>
                                         </select>
                                     </div>
 
@@ -83,18 +81,18 @@
                                         <div class="flex-grow-1">
                                             <label class="col-form-label" style="font-weight: 700;" for="AventasPrecio">
                                                 Precio</label>
-                                            <input class="form-control " id="AventasPrecio" type="text">
+                                            <input class="form-control " th:field="*{precioCbzVenta}" id="AventasPrecio" type="text">
                                         </div>
                                         <div class="flex-grow-1">
                                             <label class="col-form-label" style="font-weight: 700;" for="AventasCantidad">
                                                 Cantidad</label>
-                                            <input class="form-control " id="AventasCantidad" type="text">
+                                            <input class="form-control" th:field="*{cantidadCbzVenta}" id="AventasCantidad" type="text">
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 mb-4">
                                         <label class="col-form-label" style="font-weight: 700;" for="AventasTotal">
                                             Precio total</label>
-                                        <input class="form-control " id="AventasTotal" type="text" disabled>
+                                        <input class="form-control" th:field="*{totalCbzVenta}" id="AventasTotal" type="text" >
                                     </div>
                                 </div>
                                 </div>

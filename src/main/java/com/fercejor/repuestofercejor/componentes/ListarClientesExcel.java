@@ -59,7 +59,7 @@ public class ListarClientesExcel extends AbstractXlsxView{
                     celdaprod.setCellValue(cbzCompraEntity.getProductoCbzCompra().getNombreProducto());
                     celdaprec.setCellValue(cbzCompraEntity.getPrecioCbzCompra());
                     celdacant.setCellValue(cbzCompraEntity.getCantidadCbzCompra());
-                    celdatot.setCellValue(cbzCompraEntity.getTotalCbzCompra().toString());
+                    celdatot.setCellValue(cbzCompraEntity.getTotalCbzCompra());
 
                     numFila ++;
                 }
