@@ -9,10 +9,10 @@ public class ClienteEntity {
     @Column(name = "ID_CLIENTE" , length = 10, nullable = false)
     private String idCliente;
 
-    @Column(name = "NOMBRE", length = 20, nullable = false)
+    @Column(name = "NOMBRES", length = 20, nullable = false)
     private String nombreCliente;
 
-    @Column(name = "APELLIDO", length = 20, nullable = false)
+    @Column(name = "APELLIDOS", length = 20, nullable = false)
     private String apellidoCliente;
 
     @Column(name = "CORREO", length = 60, nullable = false)
