@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
     const tablaCategorias = document.getElementById('tablaCategorias');
+    
     if (tablaCategorias) {
         new simpleDatatables.DataTable(tablaCategorias, {
             perPage:5
