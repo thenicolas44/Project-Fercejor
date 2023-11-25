@@ -89,4 +89,17 @@ public class ProductoController {
         categoriaService.eliminarCategoria(id);
         return "redirect:/productos/";
     }
+
+    @RequestMapping("/editarProd")
+    public String editarProd(){
+
+
+        return "redirect:/productos/";
+    }
+    @RequestMapping("/editarCate")
+    public String editarCate(CategoriaEntity categoria){
+
+        categoriaService.guardarCategoria(categoria);
+        return "redirect:/productos/";
+    }
 }
