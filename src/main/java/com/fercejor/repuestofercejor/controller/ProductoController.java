@@ -91,9 +91,9 @@ public class ProductoController {
     }
 
     @RequestMapping("/editarProd")
-    public String editarProd(){
+    public String editarProd(ProductoEntity producto){
 
-
+        productoService.guardarProducto(producto);
         return "redirect:/productos/";
     }
     @RequestMapping("/editarCate")

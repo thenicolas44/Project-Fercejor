@@ -68,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+        <div class="modal fade" id="modalEditarProducto" tabindex="-1" aria-labelledby="exampleModalLabel2"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -77,31 +77,30 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="miFormulario2">
+                        <form id="miFormulario2"  th:action="@{/productos/editarProd}"  th:object="${producto}" method="post">
+                            <input type="text" id="idProd" th:field="*{idProducto}">
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;" for="nombres2">Nombres</label>
-                                <input class="form-control" id="nombres2" type="text">
+                                <input class="form-control" name="nombreProducto" id="nombres2" type="text">
                             </div>
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="descripcion2">Descripcion</label>
-                                <textarea id="descripcion2" class="form-control"></textarea>
+                                <textarea id="descripcion2" name="descripcionProducto" class="form-control"></textarea>
                             </div>
 
                             <div class="flex-grow-1 d-flex gap-2">
                                 <div class="flex-grow-1 w-50">
                                     <label class="col-form-label" style="font-weight: 700;" for="categoria2">Categorias
                                     </label>
-                                    <select class="form-select form-select" name="distritos" id="categoria2" required>
-                                        <option value="ancon">Ancón</option>
-                                        <option value="ate">Ate</option>
-                                        <option value="barranco">Barranco</option>
+                                    <select class="form-select form-select" name="categoria.idCategoria" id="categoria2" required>
+                                        <option th:each="cate : ${listaCategoria}" th:value="${cate.idCategoria}" th:text="${cate.nombreCategoria}"></option>
                                     </select>
                                 </div>
                                 <div class="flex-grow-1 w-50">
                                     <label class="col-form-label " style="font-weight: 700;"
                                            for="stock2">Stock</label>
-                                    <input class="form-control form-control " id="stock2" type="number">
+                                    <input class="form-control form-control " name="stockProducto" id="stock2" type="number">
                                 </div>
                             </div>
 
@@ -109,12 +108,12 @@
                                 <div class="mb-2 flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="P_compra2">Precio
                                     </label>
-                                    <input class="form-control form-control" id="P_compra2" type="number">
+                                    <input class="form-control form-control" name="precioComProducto" id="P_compra2" type="number">
                                 </div>
                                 <div class="mb-2 flex-grow-1">
                                     <label class="col-form-label " style="font-weight: 700;"
                                            for="P_venta2">Stock</label>
-                                    <input class="form-control form-control " id="P_venta2" type="number">
+                                    <input class="form-control form-control " name="precioVenProducto" id="P_venta2" type="number">
                                 </div>
                             </div>
 
@@ -258,11 +257,19 @@
                                                                     </button>
                                                                 </a>
                                                                 
-                                                                <button class="btn btn-dark p-1">
+                                                                <a class="btn btn-dark p-1 editarProducto"
+                                                                th:data-id="${item.idProducto}"
+                                                                th:data-nombre="${item.nombreProducto}"
+                                                                th:data-descripcion="${item.descripcionProducto}"
+                                                                th:data-categoria="${item.categoria.idCategoria}"
+                                                                th:data-pcompra="${item.precioComProducto}"
+                                                                th:data-pventa="${item.precioVenProducto}"
+                                                                th:data-stock="${item.stockProducto}"
+                                                                >
                                                                     <i data-bs-toggle="modal"
                                                                        data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
                                                                        style="font-size: 1rem"></i>
-                                                                </button>
+                                                                </a>
 
                                                             </td>
                                                         </tr>
