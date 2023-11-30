@@ -15,66 +15,76 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaEmpleado" >
+                        <form id="tablaEmpleado" th:action="@{/usuarios/guardarEmpleado}"  th:object="${empleado}" method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EprimerNombre">
                                     Primer nombre</label>
-                                    <input class="form-control " id="EprimerNombre" type="text">
+                                    <input class="form-control " th:field="*{primerNombreEmpleado}" id="EprimerNombre" type="text">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EsegundoNombre">
                                         Segundo nombre</label>
-                                    <input class="form-control " id="EsegundoNombre" type="text">
+                                    <input class="form-control " th:field="*{segundoNombreEmpleado}" id="EsegundoNombre" type="text">
                                 </div>
                             </div>
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EapellidoPaterno">
                                         Apellido paterno</label>
-                                    <input class="form-control " id="EapellidoPaterno" type="text">
+                                    <input class="form-control " th:field="*{apellidoPaternoEmpleado}" id="EapellidoPaterno" type="text">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EapellidoMaterno">
                                         Apellido materno</label>
-                                    <input class="form-control " id="EapellidoMaterno" type="text">
+                                    <input class="form-control " th:field="*{apellidoMaternoEmpleado}" id="EapellidoMaterno" type="text">
                                 </div>
                             </div>
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="Ecorreo">Correo</label>
-                                <input class="form-control " id="Ecorreo" type="email">
+                                <input class="form-control " th:field="*{correoEmpleado}" id="Ecorreo" type="email">
                             </div>
 
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="Edireccion">Direccion</label>
-                                <input class="form-control " id="Edireccion" type="text">
+                                <input class="form-control " th:field="*{direccionEmpleado}" id="Edireccion" type="text">
                             </div>
 
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 align-items-center">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="Etelefono">
                                         Telefono</label>
-                                    <input class="form-control " id="Etelefono" type="tel">
+                                    <input class="form-control " th:field="*{telefonoEmpleado}" id="Etelefono" type="tel">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="Efecha">
                                         Fecha</label>
-                                    <input class="form-control " id="Efecha" type="date">
+                                    <input class="form-control " th:field="*{fechaContratoEmpleado}" id="Efecha" type="date">
                                 </div>
                             </div>
 
-                            <div class="mb-4 flex-grow-1">
-                                <label class="col-form-label" style="font-weight: 700;" for="Ecategoria">Estado
-                                </label>
-                                <select class="form-select form-select" name="distritos" id="Ecategoria" required>
-                                    <option value="">>--Selecciona una opcion--<</option>
-                                    <option value="ate">Activo</option>
-                                    <option value="barranco">Inactivo</option>
-                                </select>
+                            <div class=" flex-grow-1 d-flex gap-2">
+                                <div class="flex-grow-1 w-50">
+                                    <label class="col-form-label" style="font-weight: 700;" for="Ecategoria">Estado
+                                    </label>
+                                    <select class="form-select form-select" name="distritos" th:field="*{estadoEmpleado}" id="Ecategoria" required>
+                                        <option value="">>--Selecciona una opcion--<</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                                <div class="flex-grow-1 w-50">
+                                    <label for="Ecargo" class="col-form-label" style="font-weight: 700;"> Cargo
+                                    </label>
+                                    <select class="form-select form-select" th:field="*{cargo.idCargo}" name="puesto" id="Ecargo">
+                                        <option th:each="crg : ${listaCargo}" th:value="${crg.idCargo}" th:text="${crg.nombreCargo}"></option>
+                                    </select>
+                                </div>  
                             </div>
-
+                            
+                            
 
                             <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
                                 <button class="btn btn-warning flex-grow-1 rounded-end-0 m-0" style="font-weight: 700;"
@@ -180,17 +190,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaCargo" >
+                        <form id="tablaCargo" th:action="@{/usuarios/guardarCargo}"  th:object="${cargo}" method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="Cnombre">
-                                        Primer nombre</label>
-                                    <input class="form-control " id="Cnombre" type="text">
+                                        Nombre</label>
+                                    <input class="form-control " th:field="*{nombreCargo}" id="Cnombre" type="text">
                                 </div>
                                 <div class="flex-grow-1 mb-4">
                                     <label class="col-form-label" style="font-weight: 700;" for="Cdescripcion">
-                                        Segundo nombre</label>
-                                    <input class="form-control " id="Cdescripcion" type="text">
+                                        Descripcion</label>
+                                    <input class="form-control " th:field="*{descripcionCargo}" id="Cdescripcion" type="text">
                                 </div>
                             </div>
 
@@ -373,7 +383,8 @@
                                                             <td th:text="${item.telefonoEmpleado}">967210541</td>
                                                             <td th:text="${item.fechaContratoEmpleado}">10/10/2023</td>
                                                             <td>
-                                                                <span class="badge bg-success">Activo</span>
+                                                                <span th:if="${item.estadoEmpleado == '1'}" class="badge bg-success">Activo</span>
+                                                                <span th:if="${item.estadoEmpleado == '0'}" class="badge bg-danger">Inactivo</span>
                                                             </td>
                                                             <td th:text="${item.cargo.nombreCargo}">Dueño</td>
                                                             <td class="d-flex justify-content-center">
