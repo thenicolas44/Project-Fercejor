@@ -34,6 +34,7 @@ public class VentaController {
 
         modelo.addAttribute("cabezeraVenta", cbzVentaEntity);
         
+        modelo.addAttribute("listaCliente", clienteService.listarCliente());
         modelo.addAttribute("listaProducto", productoService.listaProductos());
         modelo.addAttribute("listaVentas", cbzVentaService.listarCabecerVenta());
         modelo.addAttribute("listaEmpleado", empleadoService.listaEmpleado());
@@ -80,6 +81,15 @@ public class VentaController {
         Date dateFechaActual = java.sql.Date.valueOf(fechaActual);
         cbzVenta.setFechaCbzVenta(dateFechaActual);
         cbzVentaService.guardarCabezeraVenta(cbzVenta);
+        return "redirect:/ventas/"; 
+    }
+
+    @RequestMapping("/editarVentas")
+    public String editarVentas(CbzVentaEntity venta){
+        CbzVentaEntity ventaEncontrar = cbzVentaService.ventaEncontrar(venta.getIdCbzVenta());
+        Date fechaReserva = ventaEncontrar.getFechaCbzVenta();
+        venta.setFechaCbzVenta(fechaReserva);
+        cbzVentaService.guardarCabezeraVenta(venta);
         return "redirect:/ventas/"; 
     }
 }

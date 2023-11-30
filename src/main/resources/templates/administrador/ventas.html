@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalEditarVentas" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -118,10 +118,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="AtablaVentas" >
+                        <form id="AtablaVentas" th:action="@{/ventas/editarVentas}" th:object="${cabezeraVenta}" method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
+                                <!--
                                 <p class="m-0 fw-bold fs-1 badge bg-primary">Cliente</p>
-                                <div class="d-flex flex-column flex-grow-1">
                                     <div class="flex-grow-1 border border-2 rounded px-3 py-2 mb-2">
                                         <div class="d-flex gap-3">
                                             <div class="flex-grow-1 w-50">
@@ -161,23 +161,32 @@
                                                 <input class="form-control " id="EventasPais" type="text">
                                             </div>
                                         </div>
-
-
+                                    </div>
+                                -->
+                                <div class="d-flex flex-column flex-grow-1">
+                                    <input type="text" id="idVta" th:field="*{idCbzVenta}">
+                                    <div class="flex-grow-1">
+                                        <label class="col-form-label" style="font-weight: 700;" for="EventasCliente">
+                                            Cliente</label>
+                                        <select class="form-control " name="clienteCbzVenta.idCliente" id="EventasCliente" type="text">
+                                            <option selected>Elige el Cliente</option>
+                                            <option th:each="cli : ${listaCliente}" th:value="${cli.idCliente}" th:text="${cli.nombreCliente}+ ' ' + ${cli.apellidoCliente}" >Elige el cliente</option>
+                                        </select>
                                     </div>
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="EventasDescrippcion">
                                             Empleado</label>
-                                        <select class="form-control " id="EventasDescrippcion" type="text">
+                                        <select class="form-control " name="empleadoCbzVenta.idEmpleado" id="EventasDescrippcion" type="text">
                                             <option selected>Elige el empleado</option>
-                                            <option value="1">One</option>
+                                            <option th:each="empl : ${listaEmpleado}" th:value="${empl.idEmpleado}" th:text="${empl.primerNombreEmpleado}+ ' ' + ${empl.apellidoPaternoEmpleado}" >
                                         </select>
                                     </div>
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="EventasProducto">
                                             Producto</label>
-                                        <select class="form-control " id="EventasProducto" type="text">
+                                        <select class="form-control " name="productoCbzVenta.idProducto" id="EventasProducto" type="text">
                                             <option selected>Elige el producto</option>
-                                            <option value="1">One</option>
+                                            <option th:each="prod : ${listaProducto}" th:value="${prod.idProducto}" th:text="${prod.nombreProducto}">One</option>
                                         </select>
                                     </div>
 
@@ -185,18 +194,18 @@
                                         <div class="flex-grow-1">
                                             <label class="col-form-label" style="font-weight: 700;" for="EventasPrecio">
                                                 Precio</label>
-                                            <input class="form-control " id="EventasPrecio" type="text">
+                                            <input class="form-control " name="precioCbzVenta" id="EventasPrecio" type="text">
                                         </div>
                                         <div class="flex-grow-1">
                                             <label class="col-form-label" style="font-weight: 700;" for="EventasCantidad">
                                                 Cantidad</label>
-                                            <input class="form-control " id="EventasCantidad" type="text">
+                                            <input class="form-control " name="cantidadCbzVenta" id="EventasCantidad" type="text">
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 mb-4">
                                         <label class="col-form-label" style="font-weight: 700;" for="EventasTotal">
                                             Precio total</label>
-                                        <input class="form-control " id="EventasTotal" type="text" disabled>
+                                        <input class="form-control " name="totalCbzVenta" id="EventasTotal" type="text" >
                                     </div>
                                 </div>
                             </div>
@@ -288,11 +297,17 @@
                                                                    font-size: 1rem"></i>
                                                                         </button>
                                                                     </div>
-                                                                    <button class="btn btn-dark p-1">
-                                                                        <i data-bs-toggle="modal"
-                                                                           data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                    <a class="btn btn-dark p-1 editarVentas"
+                                                                    th:data-id="${item.idCbzVenta}"
+                                                                    th:data-cliente="${item.clienteCbzVenta.idCliente}"
+                                                                    th:data-empleado="${item.empleadoCbzVenta.idEmpleado}"
+                                                                    th:data-producto="${item.productoCbzVenta.idProducto}"
+                                                                    th:data-precio="${item.precioCbzVenta}"
+                                                                    th:data-cantidad="${item.cantidadCbzVenta}"
+                                                                    th:data-total="${item.totalCbzVenta}">
+                                                                        <i class="bi bi-pencil-fill"
                                                                            style="font-size: 1rem"></i>
-                                                                    </button>
+                                                                    </a>
                                                                 </div>
 
                                                             </td>

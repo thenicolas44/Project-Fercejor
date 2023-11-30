@@ -98,3 +98,23 @@
         })
     })
 })();
+//editar venta
+(function(){
+    var listaBontonesEditar = document.querySelectorAll(".editarVentas");
+    listaBontonesEditar.forEach(item =>{
+        item.addEventListener("click", e =>{
+            
+            document.getElementById('idVta').value = item.dataset.id;
+            document.getElementById('EventasCliente').value = item.dataset.cliente;
+            document.getElementById('EventasDescrippcion').value = item.dataset.empleado;
+            document.getElementById('EventasProducto').value = item.dataset.producto;
+            document.getElementById('EventasPrecio').value = item.dataset.precio;
+            document.getElementById('EventasCantidad').value = item.dataset.cantidad;
+            document.getElementById('EventasTotal').value = item.dataset.total;
+            /**/
+            
+            
+            new bootstrap.Modal(document.getElementById('modalEditarVentas')).show();
+        })
+    })
+})();

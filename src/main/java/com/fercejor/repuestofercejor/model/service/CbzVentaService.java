@@ -23,6 +23,11 @@ public class CbzVentaService implements ICbzVentaService{
         return(ArrayList<CbzVentaEntity>) cbzVentaDao.findAll();
     }
 
+    @Override
+    public CbzVentaEntity ventaEncontrar(String id) {
+        return cbzVentaDao.findById(id).orElse(null);
+    }
+
     
 } 
     
