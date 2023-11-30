@@ -107,53 +107,53 @@
                     </div>
                     <div class="modal-body">
                         <form id="tablaEmpleadoE" th:action="@{/usuarios/editarEmpleado}"  th:object="${empleado}" method="post">
-                            <input type="text" id="idEmpl">
+                            <input type="text" id="idEmpl" th:field="*{idEmpleado}" hidden>
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EprimerNombreE">
                                         Primer nombre</label>
-                                    <input class="form-control " id="EprimerNombreE" type="text">
+                                    <input class="form-control " name="primerNombreEmpleado" id="EprimerNombreE" type="text">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EsegundoNombreE">
                                         Segundo nombre</label>
-                                    <input class="form-control " id="EsegundoNombreE" type="text">
+                                    <input class="form-control " name="segundoNombreEmpleado" id="EsegundoNombreE" type="text">
                                 </div>
                             </div>
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EapellidoPaternoE">
                                         Apellido paterno</label>
-                                    <input class="form-control " id="EapellidoPaternoE" type="text">
+                                    <input class="form-control " name="apellidoPaternoEmpleado" id="EapellidoPaternoE" type="text">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EapellidoMaternoE">
                                         Apellido materno</label>
-                                    <input class="form-control " id="EapellidoMaternoE" type="text">
+                                    <input class="form-control " name="apellidoMaternoEmpleado" id="EapellidoMaternoE" type="text">
                                 </div>
                             </div>
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="EcorreoE">Correo</label>
-                                <input class="form-control " id="EcorreoE" type="email">
+                                <input class="form-control " name="correoEmpleado" id="EcorreoE" type="email">
                             </div>
 
                             <div class="mb-2 flex-grow-1">
                                 <label class="col-form-label" style="font-weight: 700;"
                                        for="EdireccionE">Direccion</label>
-                                <input class="form-control " id="EdireccionE" type="text">
+                                <input class="form-control " name="direccionEmpleado" id="EdireccionE" type="text">
                             </div>
 
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 align-items-center">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EtelefonoE">
                                         Telefono</label>
-                                    <input class="form-control " id="EtelefonoE" type="tel">
+                                    <input class="form-control " name="telefonoEmpleado" id="EtelefonoE" type="tel">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EfechaE">
                                         Fecha</label>
-                                    <input class="form-control " id="EfechaE" type="date">
+                                    <input class="form-control " name="fechaContratoEmpleado"  id="EfechaE" type="date">
                                 </div>
                             </div>
 
@@ -161,7 +161,7 @@
                                 <div class="flex-grow-1 w-50">
                                     <label class="col-form-label" style="font-weight: 700;" for="EcategoriaE">Estado
                                     </label>
-                                    <select class="form-select form-select" name="distritos" id="EcategoriaE" required>
+                                    <select class="form-select form-select" name="estadoEmpleado" id="EcategoriaE" required>
                                         <option value=""> >--Selecciona una opcion--< </option>
                                         <option value="1">Activo</option>
                                         <option value="0">Inactivo</option>
@@ -170,7 +170,7 @@
                                 <div class="flex-grow-1 w-50">
                                     <label for="EcargoE" class="col-form-label" style="font-weight: 700;">Cargo
                                     </label>
-                                    <select class="form-select form-select"  name="puesto" id="EcargoE">
+                                    <select class="form-select form-select"  name="cargo.idCargo" id="EcargoE">
                                         <option th:each="crg : ${listaCargo}" th:value="${crg.idCargo}" th:text="${crg.nombreCargo}"></option>
                                     </select>
                                 </div>

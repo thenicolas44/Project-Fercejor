@@ -64,3 +64,39 @@
         })
     })
 })();
+//editar Cliente
+(function(){
+    var listaBontonesEditar = document.querySelectorAll(".editarCliente");
+    listaBontonesEditar.forEach(item =>{
+        item.addEventListener("click", e =>{
+            
+            document.getElementById('idCli').value = item.dataset.id;
+            document.getElementById('ClienteNom').value = item.dataset.nombre;
+            document.getElementById('ClienteApe').value = item.dataset.apellido;
+            document.getElementById('ClienteCorreo').value = item.dataset.correo;
+            document.getElementById('ClienteDireccion').value = item.dataset.direccion;
+            document.getElementById('CLienteTelefono').value = item.dataset.telefono;
+            document.getElementById('CLientePais').value = item.dataset.pais;
+            new bootstrap.Modal(document.getElementById('modalEditarCliente')).show();
+        })
+    })
+})();
+//editar compra
+(function(){
+    var listaBontonesEditar = document.querySelectorAll(".editarCompras");
+    listaBontonesEditar.forEach(item =>{
+        item.addEventListener("click", e =>{
+            /*
+            document.getElementById('idComp').value = item.dataset.id;
+            document.getElementById('ClienteNom').value = item.dataset.nombre;
+            document.getElementById('ClienteApe').value = item.dataset.apellido;
+            document.getElementById('ClienteCorreo').value = item.dataset.correo;
+            document.getElementById('ClienteDireccion').value = item.dataset.direccion;
+            document.getElementById('CLienteTelefono').value = item.dataset.telefono;
+            document.getElementById('CLientePais').value = item.dataset.pais;
+            */
+            
+            new bootstrap.Modal(document.getElementById('modalEditarCompras')).show();
+        })
+    })
+})();
