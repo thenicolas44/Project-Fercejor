@@ -17,11 +17,7 @@
                     <div class="modal-body">
                         <form id="tablaCompras" th:action="@{/compras/guardar}" th:object="${cabezeraCompra}"  method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="comprasNombre">
-                                        Empleado</label>
-                                    <input class="form-control " id="comprasNombre" type="text">
-                                </div>
+                                
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="comprasDescrippcion">
                                         Proveedor</label>
@@ -75,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalEditarCompras" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -84,40 +80,40 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="AtablaCompras" >
+                        <form id="AtablaCompras" th:action="@{/compras/editarCompra}" th:object="${cabezeraCompra}"  method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column">
-                                <div class="flex-grow-1">
-                                    <label class="col-form-label" style="font-weight: 700;" for="AcomprasNombre">
-                                        Nombre</label>
-                                    <input class="form-control " id="AcomprasNombre" type="text">
-                                </div>
+                                <input type="text" id="idComp" th:field="*{idCbzCompra}">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="AcomprasDescrip">
                                         Proveedor</label>
-                                    <input class="form-control " id="AcomprasDescrip" type="text">
+                                    <select class="form-select form-select" name="proveedorCbzCompra.idProveedor" id="AcomprasDescrip" required>
+                                        <option th:each="provee : ${listarProveedor}" th:value="${provee.idProveedor}" th:text="${provee.nombreProveedor}"></option>
+                                    </select>
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="AcomprasProducto">
                                         Producto</label>
-                                    <input class="form-control " id="AcomprasProducto" type="text">
+                                    <select class="form-select form-select" name="productoCbzCompra.idProducto" id="AcomprasProducto" required>
+                                        <option th:each="prod: ${listaProductos}" th:value="${prod.idProducto}" th:text="${prod.nombreProducto}" ></option>
+                                    </select>
                                 </div>
 
                                 <div class="d-flex justify-content-between gap-3">
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="AcomprasPrecio">
                                             Precio</label>
-                                        <input class="form-control " id="AcomprasPrecio" type="text">
+                                        <input class="form-control " name="precioCbzCompra" id="AcomprasPrecio" type="text">
                                     </div>
                                     <div class="flex-grow-1">
                                         <label class="col-form-label" style="font-weight: 700;" for="AcomprasCantidad">
                                             Cantidad</label>
-                                        <input class="form-control " id="AcomprasCantidad" type="text">
+                                        <input class="form-control " name="cantidadCbzCompra" id="AcomprasCantidad" type="text">
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 mb-4">
                                     <label class="col-form-label" style="font-weight: 700;" for="AcomprasTotal">
                                         Precio total</label>
-                                    <input class="form-control " id="AcomprasTotal" type="text" disabled>
+                                    <input class="form-control " name="totalCbzCompra" id="AcomprasTotal" type="text" >
                                 </div>
                             </div>
 
@@ -204,11 +200,17 @@
                                                                            font-size: 1rem"></i>
                                                                         </button>
                                                                     </div>
-                                                                    <button class="btn btn-dark p-1">
-                                                                        <i data-bs-toggle="modal"
-                                                                           data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                    <a class="btn btn-dark p-1 editarCompras"
+                                                                    th:data-id="${item.idCbzCompra}"
+                                                                    th:data-proveedor="${item.proveedorCbzCompra.idProveedor}"
+                                                                    th:data-producto="${item.productoCbzCompra.idProducto}"
+                                                                    th:data-precio="${item.precioCbzCompra}"
+                                                                    th:data-cantidad="${item.cantidadCbzCompra}"
+                                                                    th:data-total="${item.totalCbzCompra}"
+                                                                    >
+                                                                        <i class="bi bi-pencil-fill"
                                                                            style="font-size: 1rem"></i>
-                                                                    </button>
+                                                                    </a>
                                                                 </div>
 
                                                             </td>

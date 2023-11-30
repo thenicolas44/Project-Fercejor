@@ -86,15 +86,13 @@
     var listaBontonesEditar = document.querySelectorAll(".editarCompras");
     listaBontonesEditar.forEach(item =>{
         item.addEventListener("click", e =>{
-            /*
+            
             document.getElementById('idComp').value = item.dataset.id;
-            document.getElementById('ClienteNom').value = item.dataset.nombre;
-            document.getElementById('ClienteApe').value = item.dataset.apellido;
-            document.getElementById('ClienteCorreo').value = item.dataset.correo;
-            document.getElementById('ClienteDireccion').value = item.dataset.direccion;
-            document.getElementById('CLienteTelefono').value = item.dataset.telefono;
-            document.getElementById('CLientePais').value = item.dataset.pais;
-            */
+            document.getElementById('AcomprasDescrip').value = item.dataset.proveedor;
+            document.getElementById('AcomprasProducto').value = item.dataset.producto;
+            document.getElementById('AcomprasPrecio').value = item.dataset.precio;
+            document.getElementById('AcomprasCantidad').value = item.dataset.cantidad;
+            document.getElementById('AcomprasTotal').value = item.dataset.total;
             
             new bootstrap.Modal(document.getElementById('modalEditarCompras')).show();
         })

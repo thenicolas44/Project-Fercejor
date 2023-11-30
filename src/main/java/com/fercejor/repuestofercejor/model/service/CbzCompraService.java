@@ -22,5 +22,10 @@ public class CbzCompraService implements ICbzCompraService{
     public ArrayList<CbzCompraEntity> listarCabezeraCompra() {
         return (ArrayList<CbzCompraEntity>) cbzCompraDao.findAll();
     }
+
+    @Override
+    public CbzCompraEntity compra(String id) {
+        return cbzCompraDao.findById(id).orElse(null);
+    }
     
 }

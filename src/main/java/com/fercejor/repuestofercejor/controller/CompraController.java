@@ -63,7 +63,14 @@ public class CompraController {
         
         return "redirect:/compras/";
     }
-    
+    @RequestMapping("/editarCompra")
+    public String editarCompra(CbzCompraEntity compra){
+        CbzCompraEntity compraEncontrada = cbzCompraService.compra(compra.getIdCbzCompra());
+        Date fechaReserva = compraEncontrada.getFechaCbzCompra();
+        compra.setFechaCbzCompra(fechaReserva);
+        cbzCompraService.guardarCabezeraCompra(compra);
+        return "redirect:/compras/";
+    }
     @GetMapping("/vista/")
     public String listarCom(Model modelo){
         List<CbzCompraEntity> listarCompras = cbzCompraService.listarCabezeraCompra();
