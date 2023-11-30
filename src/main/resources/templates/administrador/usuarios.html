@@ -215,7 +215,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4"
+        <div class="modal fade" id="modalEditarCargo" tabindex="-1" aria-labelledby="exampleModalLabel4"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -224,17 +224,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaCargoE">
+                        <form id="tablaCargoE" th:action="@{/usuarios/editarCargo}"  th:object="${cargo}" method="post">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2 flex-column mb-4">
+                                <input type="text" id="idCrg" th:field="*{idCargo}" hidden>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="CarNombre">
-                                        Primer nombre</label>
-                                    <input class="form-control " id="CarNombre" type="text">
+                                        Nombre</label>
+                                    <input class="form-control " id="CarNombre" name="nombreCargo" type="text">
                                 </div>
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="CarDescripcion">
-                                        Segundo nombre</label>
-                                    <input class="form-control " id="CarDescripcion" type="text">
+                                        Descripcion</label>
+                                    <input class="form-control " id="CarDescripcion" name="descripcionCargo" type="text">
                                 </div>
                             </div>
 
@@ -474,12 +475,16 @@
                                                                        style="color: white;
                                                                    font-size: 1rem"></i>
                                                                 </button>
-                                                                <button class="btn btn-dark p-1">
+                                                                <a class="btn btn-dark p-1 editarCargo"
+                                                                th:data-id="${item.idCargo}"
+                                                                th:data-nombre="${item.nombreCargo}"
+                                                                th:data-descripcion="${item.descripcionCargo}"
+                                                                >
                                                                     <i data-bs-toggle="modal"
                                                                        data-bs-target="#exampleModal4"
                                                                        class="bi bi-pencil-fill"
                                                                        style="font-size: 1rem"></i>
-                                                                </button>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -516,12 +521,12 @@
                                                                        style="color: white;
                                                                    font-size: 1rem"></i>
                                                                 </button>
-                                                                <button class="btn btn-dark p-1">
+                                                                <a class="btn btn-dark p-1 ">
                                                                     <i data-bs-toggle="modal"
                                                                        data-bs-target="#exampleModal6"
                                                                        class="bi bi-pencil-fill"
                                                                        style="font-size: 1rem"></i>
-                                                                </button>
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                         </tbody>

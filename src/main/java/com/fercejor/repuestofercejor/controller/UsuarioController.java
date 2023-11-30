@@ -67,4 +67,15 @@ public class UsuarioController {
         empleadoService.guardarEmpleado(empleado);
         return "redirect:/usuarios/";
     }
+
+    @RequestMapping("/editarCargo")
+    public String editarCargo(CargoEntity cargo){
+        cargoService.guardarCargo(cargo);
+        return "redirect:/usuarios/";
+    }
+    @RequestMapping("/editarEmpleado")
+    public String editarEmpleado(EmpleadoEntity empleado){
+        empleadoService.guardarEmpleado(empleado);
+        return "redirect:/usuarios/";
+    }
 }
