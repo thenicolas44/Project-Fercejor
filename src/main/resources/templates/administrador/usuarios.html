@@ -97,7 +97,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+        <div class="modal fade" id="modalEditarEmpleado" tabindex="-1" aria-labelledby="exampleModalLabel2"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -106,7 +106,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form id="tablaEmpleadoE">
+                        <form id="tablaEmpleadoE" th:action="@{/usuarios/editarEmpleado}"  th:object="${empleado}" method="post">
+                            <input type="text" id="idEmpl">
                             <div class="mb-2 flex-grow-1 d-flex justify-content-between gap-2">
                                 <div class="flex-grow-1">
                                     <label class="col-form-label" style="font-weight: 700;" for="EprimerNombreE">
@@ -156,15 +157,26 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 flex-grow-1">
-                                <label class="col-form-label" style="font-weight: 700;" for="EcategoriaE">Estado
-                                </label>
-                                <select class="form-select form-select" name="distritos" id="EcategoriaE" required>
-                                    <option value=""> >--Selecciona una opcion--< </option>
-                                    <option value="ate">Activo</option>
-                                    <option value="barranco">Inactivo</option>
-                                </select>
+                            <div class=" flex-grow-1 d-flex gap-2">
+                                <div class="flex-grow-1 w-50">
+                                    <label class="col-form-label" style="font-weight: 700;" for="EcategoriaE">Estado
+                                    </label>
+                                    <select class="form-select form-select" name="distritos" id="EcategoriaE" required>
+                                        <option value=""> >--Selecciona una opcion--< </option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                                <div class="flex-grow-1 w-50">
+                                    <label for="EcargoE" class="col-form-label" style="font-weight: 700;">Cargo
+                                    </label>
+                                    <select class="form-select form-select"  name="puesto" id="EcargoE">
+                                        <option th:each="crg : ${listaCargo}" th:value="${crg.idCargo}" th:text="${crg.nombreCargo}"></option>
+                                    </select>
+                                </div>
                             </div>
+
+                            
 
 
                             <div class="modal-footer d-flex align-items-center gap-2 p-0 pt-2">
@@ -395,11 +407,21 @@
                                                                        style="color: white;
                                                                    font-size: 1rem"></i>
                                                                 </button>
-                                                                <button class="btn btn-dark p-1">
-                                                                    <i data-bs-toggle="modal"
-                                                                       data-bs-target="#exampleModal2" class="bi bi-pencil-fill"
+                                                                <a class="btn btn-dark p-1 editarEmpleado"
+                                                                th:data-id="${item.idEmpleado}"
+                                                                th:data-prinombre="${item.primerNombreEmpleado}"
+                                                                th:data-secnombre="${item.segundoNombreEmpleado}"
+                                                                th:data-patapellido="${item.apellidoPaternoEmpleado}"
+                                                                th:data-matapellido="${item.apellidoMaternoEmpleado}"
+                                                                th:data-correo="${item.correoEmpleado}"
+                                                                th:data-direccion="${item.direccionEmpleado}"
+                                                                th:data-telefono="${item.telefonoEmpleado}"
+                                                                th:data-fecha="${item.fechaContratoEmpleado}"
+                                                                th:data-cargo="${item.cargo.idCargo}"
+                                                                th:data-estado="${item.estadoEmpleado}">
+                                                                    <i class="bi bi-pencil-fill"
                                                                        style="font-size: 1rem"></i>
-                                                                </button>
+                                                                </a>
                                                                 <button class="btn btn-info p-1">
                                                                     <i onclick="generarCreden()"
                                                                     class="bi bi-person-vcard-fill"
@@ -480,9 +502,7 @@
                                                                 th:data-nombre="${item.nombreCargo}"
                                                                 th:data-descripcion="${item.descripcionCargo}"
                                                                 >
-                                                                    <i data-bs-toggle="modal"
-                                                                       data-bs-target="#exampleModal4"
-                                                                       class="bi bi-pencil-fill"
+                                                                    <i class="bi bi-pencil-fill"
                                                                        style="font-size: 1rem"></i>
                                                                 </a>
                                                             </td>

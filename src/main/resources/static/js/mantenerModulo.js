@@ -43,7 +43,7 @@
 })();
 //editar empleado
 (function(){
-    var listaBontonesEditar = document.querySelectorAll(".editarCargo");
+    var listaBontonesEditar = document.querySelectorAll(".editarEmpleado");
     listaBontonesEditar.forEach(item =>{
         item.addEventListener("click", e =>{
             
@@ -55,10 +55,12 @@
             document.getElementById('EcorreoE').value = item.dataset.correo;
             document.getElementById('EdireccionE').value = item.dataset.direccion;
             document.getElementById('EtelefonoE').value = item.dataset.telefono;
-            document.getElementById('EfechaE').value = item.dataset.fecha;
-            document.getElementById('EcategoriaE').value = item.dataset.categoria;
-            document.getElementById('EestadoE').value = item.dataset.estado;
-            new bootstrap.Modal(document.getElementById('modalEditarCargo')).show();
+            var fechaOriginal = new Date(item.dataset.fecha);
+            var fechaFormateada = fechaOriginal.toISOString().split('T')[0];
+            document.getElementById('EfechaE').value = fechaFormateada;
+            document.getElementById('EcargoE').value = item.dataset.cargo;
+            document.getElementById('EcategoriaE').value = item.dataset.estado;
+            new bootstrap.Modal(document.getElementById('modalEditarEmpleado')).show();
         })
     })
 })();
