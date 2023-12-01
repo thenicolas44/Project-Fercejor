@@ -25,11 +25,12 @@ public class ListarClientesPdf extends AbstractPdfView{
                 listarCompras.forEach(compras -> {
                     tablaCompras.addCell(compras.getIdCbzCompra());
                     tablaCompras.addCell(compras.getFechaCbzCompra().toString());
+                    tablaCompras.addCell(compras.getProveedorCbzCompra().getNombreProveedor());
+                    tablaCompras.addCell(compras.getProductoCbzCompra().getNombreProducto());
                     tablaCompras.addCell(compras.getCantidadCbzCompra().toString());
                     tablaCompras.addCell(compras.getPrecioCbzCompra().toString());
                     tablaCompras.addCell(compras.getTotalCbzCompra().toString());
-                    tablaCompras.addCell(compras.getProveedorCbzCompra().getNombreProveedor());
-                    tablaCompras.addCell(compras.getProductoCbzCompra().getNombreProducto());
+                    
                 });
 
             document.add(tablaCompras);

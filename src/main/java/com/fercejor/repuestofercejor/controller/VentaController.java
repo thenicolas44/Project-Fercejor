@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fercejor.repuestofercejor.model.entity.CbzVentaEntity;
@@ -91,5 +92,12 @@ public class VentaController {
         venta.setFechaCbzVenta(fechaReserva);
         cbzVentaService.guardarCabezeraVenta(venta);
         return "redirect:/ventas/"; 
+    }
+
+    @GetMapping("/vista/")
+    public String listaVent(Model modelo){
+        List<CbzVentaEntity> listaVentas = cbzVentaService.listarCabecerVenta();
+        modelo.addAttribute("listadoVenta", listaVentas);
+        return "/ventas/vista/lista";
     }
 }

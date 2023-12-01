@@ -21,7 +21,7 @@ public class ListarClientesExcel extends AbstractXlsxView{
     @Override
     protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-                response.setHeader("Content-Disposition", "attachment; filemane=\"listado-compras.xlsx");
+                response.setHeader("Content-Disposition", "attachment; filemane= \"listado_compras.xlsx\"");
                 Sheet hoja = workbook.createSheet("Compras");
 
                 Row filaTitulo = hoja.createRow(0);
