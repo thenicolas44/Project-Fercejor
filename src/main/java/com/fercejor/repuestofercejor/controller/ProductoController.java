@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -75,14 +76,14 @@ public class ProductoController {
         return "redirect:/productos/";
     }
 
-    @RequestMapping("/eliminarProd/{id}")
+    @GetMapping("/eliminarProd/{id}")
     public String eliminarProd(
         @PathVariable(value = "id") String id, Model model
     ){
         productoService.eliminarProducto(id);
         return "redirect:/productos/";
     }
-    @RequestMapping("/eliminarCate/{id}")
+    @GetMapping("/eliminarCate/{id}")
     public String eliminarCate(
         @PathVariable(value = "id") String id, Model model
     ){
