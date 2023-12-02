@@ -7,5 +7,5 @@ import com.fercejor.repuestofercejor.model.entity.EmpleadoEntity;
 public interface IEmpleadoService {
     public void guardarEmpleado(EmpleadoEntity empleado);
     public ArrayList<EmpleadoEntity> listaEmpleado();
-    public void eliminarEmpleado(String id);
+    public String eliminarEmpleado(String id);
 }

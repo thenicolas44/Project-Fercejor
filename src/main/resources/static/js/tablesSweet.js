@@ -161,7 +161,7 @@ function eliminarProducto(event,btn) {
         if (result.isConfirmed) {
             Swal.fire(
                 'Eliminado',
-                'El cliente ha sido borrado.',
+                'El Producto ha sido borrado.',
                 'success'
             )
             window.location.href = href;
@@ -189,7 +189,7 @@ function eliminarCategoria(event,btn) {
         if (result.isConfirmed) {
             Swal.fire(
                 'Eliminado',
-                'El cliente ha sido borrado.',
+                'La Categoria ha sido borrado.',
                 'success'
             )
             
@@ -199,7 +199,11 @@ function eliminarCategoria(event,btn) {
     })
 }
 
-function eliminarEmpleado() {
+function eliminarEmpleado(event,btn) {
+    event.preventDefault();
+    let id = btn.getAttribute('data-id');
+    let href = location+"eliminarEmple/"+id;
+    console.log(href);
     Swal.fire({
         title: 'Estas seguro?',
         text: "Eliminaras el empleado",
@@ -213,13 +217,19 @@ function eliminarEmpleado() {
         if (result.isConfirmed) {
             Swal.fire(
                 'Eliminado',
-                'El cliente ha sido borrado.',
+                'El empleado ha sido borrado.',
                 'success'
             )
+            window.location.href = href;
+            console.log(href);
         }
     })
 }
-function eliminarCargo() {
+function eliminarCargo(event,btn) {
+    event.preventDefault();
+    let id = btn.getAttribute('data-id');
+    let href = location+"eliminarCarg/"+id;
+    console.log(href);
     Swal.fire({
         title: 'Estas seguro?',
         text: "Eliminaras el empleado",
@@ -233,9 +243,11 @@ function eliminarCargo() {
         if (result.isConfirmed) {
             Swal.fire(
                 'Eliminado',
-                'El cliente ha sido borrado.',
+                'El cargo ha sido borrado.',
                 'success'
             )
+            window.location.href = href;
+            console.log(href);
         }
     })
 }
