@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fercejor.repuestofercejor.model.entity.CategoriaEntity;
 import com.fercejor.repuestofercejor.model.entity.ProductoEntity;
@@ -85,9 +86,10 @@ public class ProductoController {
     }
     @GetMapping("/eliminarCate/{id}")
     public String eliminarCate(
-        @PathVariable(value = "id") String id, Model model
+        @PathVariable(value = "id") String id, Model model,RedirectAttributes flash
     ){
-        categoriaService.eliminarCategoria(id);
+        String rpta = categoriaService.eliminarCategoria(id);
+        flash.addFlashAttribute("mensaje", rpta);
         return "redirect:/productos/";
     }
 

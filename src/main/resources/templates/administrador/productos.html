@@ -224,6 +224,10 @@
                                             <div class="card mb-4">
                                                 <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         style="font-weight: 700;">Agregar producto</button>
+                                                <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null}" role="alert">
+                                                    <span th:text="${mensaje}">borradoXD</span>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
                                                 <div class="table-responsive card-body">
                                                     <table id="datatablesSimple" class="table table-bordered">
                                                         <thead>
