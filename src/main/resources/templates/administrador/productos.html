@@ -249,12 +249,17 @@
                                                             <td th:text="${item.precioVenProducto}">S/5.00</td>
                                                             <td th:text="${item.stockProducto}">30</td>
                                                             <td class="d-flex justify-content-center">
-                                                                <a th:href="@{/productos/eliminarProd/} + ${item.idProducto}">
-                                                                    <button class="btn btn-danger p-1" >
-                                                                    <i onclick="eliminarProducto()" class="bi bi-trash3-fill"
+
+
+                                                                <a
+                                                                class="btn btn-danger p-1" 
+                                                                th:if="${item.idProducto != null}"
+                                                                th:href="@{/productos/eliminarProd/{id}(id=${item.idProducto})} "
+                                                                th:data-id="${item.idProducto}" 
+                                                                onclick="eliminarProducto(event,this)">
+                                                                    <i class="bi bi-trash3-fill"
                                                                        style="color: white;
                                                                    font-size: 1rem"></i>
-                                                                    </button>
                                                                 </a>
                                                                 
                                                                 <a class="btn btn-dark p-1 editarProducto"

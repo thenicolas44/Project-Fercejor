@@ -143,7 +143,11 @@ document.getElementById('miFormulario4').addEventListener('submit', function (ev
 });
 // Formulario empleados
 
-function eliminarProducto() {
+function eliminarProducto(event,btn) {
+    event.preventDefault();
+    let id = btn.getAttribute('data-id');
+    let href = location+"eliminarProd/"+id;
+    console.log(href);
     Swal.fire({
         title: 'Estas seguro?',
         text: "Eliminaras el cliente",
@@ -160,6 +164,8 @@ function eliminarProducto() {
                 'El cliente ha sido borrado.',
                 'success'
             )
+            window.location.href = href;
+            console.log(href);
         }
     })
 }
