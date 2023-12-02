@@ -7,5 +7,5 @@ import com.fercejor.repuestofercejor.model.entity.ProductoEntity;
 public interface IProductoService {
     public void guardarProducto(ProductoEntity producto);
     public ArrayList<ProductoEntity> listaProductos();
-    public void eliminarProducto(String id);
+    public String eliminarProducto(String id);
 }

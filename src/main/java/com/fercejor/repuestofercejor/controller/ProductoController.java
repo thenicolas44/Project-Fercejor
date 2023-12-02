@@ -79,9 +79,11 @@ public class ProductoController {
 
     @GetMapping("/eliminarProd/{id}")
     public String eliminarProd(
-        @PathVariable(value = "id") String id, Model model
+        @PathVariable(value = "id") String id, Model model,RedirectAttributes flash
     ){
-        productoService.eliminarProducto(id);
+        String rpta = productoService.eliminarProducto(id);
+        
+        flash.addFlashAttribute("mensaje", rpta);
         return "redirect:/productos/";
     }
     @GetMapping("/eliminarCate/{id}")

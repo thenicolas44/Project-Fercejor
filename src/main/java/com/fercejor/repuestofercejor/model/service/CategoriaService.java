@@ -34,7 +34,7 @@ public class CategoriaService implements ICategoriaService{
             rpta = "No se puede eliminar la categoría porque hay productos asociados a ella.";
         } 
         catch (Exception e) {
-            rpta = e.getMessage();
+            rpta = "Error al eliminar la categoría. \n Detalle :" + e.getMessage() ;
         }
         return rpta;
     }
